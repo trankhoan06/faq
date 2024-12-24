@@ -1,0 +1,84 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: "faq"
+  screenshotPath: ../images/template-previews/home.png
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+
+<div class="content">
+  <div class="content__1">
+    {% global_partial path="./partials/left_sitebar.html" %}
+  </div>
+  <div class="content__4">
+    {% global_partial path="./partials/logo.html" %}
+  </div>
+  <div class="content__2">
+    {% module "module_17326755235601" path="/Townwifi/modules/Townwifi-Faq-Search", label="Townwifi-Faq-Search" %}
+  </div>
+  <div class="content__3">
+    {% module "module_173243326085418" path="/Townwifi/modules/Townwifi-Faq", label="Townwifi-Faq" %}
+  </div>
+</div>
+<style>
+  .content{
+    max-width: 96.5rem;
+    margin: auto;
+    margin-top: 18.5rem;
+    display: grid;
+    justify-content: space-between;
+    padding-top: 2.5rem;
+     column-gap: 2.5rem;
+     grid-template-columns: 26rem 68rem;
+  }
+  /* .content__left{
+    width: 26rem;
+  }
+  .content__right{
+    width: 68rem;
+  } */
+   .content__1{
+   grid-column: 1 / 2;
+    grid-row: 1 / 3;
+   }
+   .content__4{
+   grid-column: 1 / 2;
+    grid-row: 3 / 4;
+   }
+   .content__2{
+   grid-column: 2 / 3;
+   grid-row: 1 / 2;
+  }
+  .content__3{
+  grid-column: 2 / 3;
+  grid-row: 2 / 4;
+  }
+  @media screen and (max-width:767px) {
+  .content{
+    padding: 2.5rem 1.5rem;
+    margin-top: .5rem;
+     grid-template-columns: 100%;
+     column-gap: 0;
+  }
+  .content__1{
+   grid-column: 1 / 2;
+    grid-row: 3/ 4;
+   }
+   .content__2{
+   grid-column: 1/2;
+   grid-row: 2 / 3;
+  }
+  .content__3{
+  grid-column: 1/ 2;
+  grid-row: 4/ 5;
+  }
+  .content__4{
+   grid-column: 1 / 2;
+    grid-row: 1/ 2;
+   }
+  }
+</style>
+
+{% endblock body %}

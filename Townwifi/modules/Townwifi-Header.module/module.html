@@ -1,0 +1,177 @@
+<!-- module html  -->
+<div class="header__main">
+    <div class="header__logo">
+        <div class="header__logo__inner">
+            <div class="header__logo__mainlogo anim-hover-opacity">
+                <a href="{{module.header_logo.logo.link_header_logo.url.href}}" class="header__logo__mainlogo-image anim-hover-opacity">
+                    <img class="pc" src="{{module.header_logo.logo.image_logo.src}}" alt="">
+                    <img class="mobile" src="{{module.header_logo.logo.image_logo_mobile.src}}" alt="">
+                </a>
+                <div class="header__logo__mainlogo-text pc">{{module.header_logo.logo.text_logo}}</div>
+                <div class="header__logo__mainlogo-text mobile">{{module.header_logo.logo.text_logo_mobile}}</div>
+            </div>
+            <div class="header__logo-1">
+                <img src="{{module.header_logo.icon_logo_tosho.src}}" alt="">
+            </div>
+            <div class="header__logo-2 pc">
+                <img class="pc" src="{{module.header_logo.image_logo_no_1.src}}" alt="">
+            </div>
+            <a href="{{module.header_logo.user.link_user.url.href}}" class="header__logo__user">
+                <div class="header__logo__user-image">
+                    <img class="pc" src="{{module.header_logo.user.icon_user.src}}" alt="">
+                    <img class="mobile" src="{{module.header_logo.user.icon_user_mobile.src}}" alt="">
+                </div>
+                <div class="header__logo__user-text pc">{{module.header_logo.user.text_user}}</div>
+            </a>
+            <div class="header__logo__special anim-hover-opacity pc">
+                <a target="_blank" href="{{module.header_logo.special_application.link_special_application.url.href}}">
+                    <img src="{{module.header_logo.special_application.image_special_application.src}}" alt="">
+                </a>
+            </div>
+            <div class="header__logo__rental anim-hover-opacity">
+                <a target="_blank" href="{{module.header_logo.rental_application.link_rental_application.url.href}}">
+                    <img class="pc" src="{{module.header_logo.rental_application.image_rental_application.src}}" alt="">
+                    <img class="mobile" src="{{module.header_logo.rental_application.image_rental_application_mobile.src}}" alt="">
+                </a>
+            </div>
+            <div class="header__logo__catalog mobile">
+                <img class="mobile" src="{{module.image_catalog_mobile.image.src}}" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .header__logo__inner{
+    max-width: 98rem;
+    margin: auto;
+    display: flex;
+}
+.header__logo{
+    background-color: #f1f1f1;
+    width: 100% !important;
+    padding-top: 1.5rem;
+}
+.header__logo__mainlogo-image{
+    width: 86.65% !important;
+}
+.header__logo__mainlogo-text{
+    color: #000;
+    line-height: 1.1rem;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+.header__logo-1{
+    width: 4.59%;
+    margin: 0.5rem 1rem 0.5rem 1rem;
+}
+.header__logo-2{
+    width: 11.73%;
+    margin: 0.5rem;
+    margin-left: 1rem;
+}
+.header__logo__user{
+    margin: 0.5rem 2rem 0.5rem 1rem;
+    color: #051f49;
+    text-decoration: none;
+    
+}
+.header__logo__user:hover .header__logo__user-text{
+    color: #025CD3;
+}
+.header__logo__user:hover .header__logo__user-image{
+    opacity: .8;
+}
+.header__logo__user .header__logo__user-image{
+    opacity: 1;
+    transition:.1s ease opacity;
+}
+.header__logo__user-image{
+    width: 20.5%;
+    margin: auto;
+    
+}
+.header__logo__user-text{
+    font-size: 1.3rem;
+    line-height: 1.65rem;
+}
+.header__logo__special{
+    margin-right: 1rem;
+    width: 18.67%;
+}
+.header__logo__rental{
+    width: 21.63%;
+}
+@media screen and (max-width:767px) {
+    .header__logo__mainlogo-image{
+        width: 5rem !important;
+        padding: 0 1.5rem;
+    } 
+    .header__logo__catalog.mobile{
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        margin-left: .7rem;
+    }
+   .header__logo__mainlogo{
+    display: flex !important;
+    padding-top: .6rem;
+   }
+   .header__logo__rental{
+    background-color: #f36;
+    width: 4.6rem;
+   }
+   .header__logo__mainlogo-text{
+       font-size: .9rem;
+       width: 7.2rem;
+       line-height: .9rem;
+       padding-top: .6rem;
+   }
+   .header__logo__user-image{
+    width:4.8rem;
+    border-left: 1px solid #ccc;
+    padding: 0 1rem;
+    padding-top: .6rem;
+        padding-bottom: .3rem;
+        padding-left: .7rem;
+   }
+   .header__logo{
+    padding-top:0 !important ;
+   }
+   .header__logo-1{
+    width: 3rem;
+    padding-top: .5rem;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-right: 0;
+   }
+   .header__logo__catalog{
+    width: 4.8rem;
+   }
+   .header__logo__rental{
+    display: flex;
+    align-items: center;
+    padding: 0 .8rem;
+    width: 6.2rem;
+    padding: 0;
+   }
+   .header__logo__rental a{
+    margin: .6rem .7rem 0.7rem 0.7rem;
+   }
+   .header__logo__user{
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-right: -.2rem;
+   }
+   .header__logo{
+    background-color: #fff;
+   }
+   .header__logo{
+    position: fixed;
+    z-index: 10000000;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+   }
+}
+</style>

@@ -1,0 +1,553 @@
+<!-- module html  -->
+{% set category_name = request.query_dict.name %}
+{% set sort = request.query_dict.sort %}
+{% set page = request.query_dict.page | default(1) | int %}
+{% set keyword = request.query_dict.keyword %}
+{% set cur__post = (page - 1) * 10 %}
+{% set end__post = cur__post + 10 %}
+{% set posts = [] %}
+
+{% set all_categories = hubdb_table_rows('103094635') %}
+{% set child_categories = [] %}
+
+{% macro get_all_child_categories(category_name, categories) %}
+    {% for item in categories %}
+        {% for parent in item.parent_category %}
+            {% if category_name == parent[1] %}
+                {% do child_categories.append(item) %}
+                {% do get_all_child_categories(item[1], categories) %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+{% endmacro %}
+
+{% if category_name %}
+    {% do get_all_child_categories(category_name, all_categories) %}
+    {% for category in child_categories %}
+        {% set name_main = category[1] %}
+        {% set category_posts = hubdb_table_rows('102743924', '&category__contains=' ~ name_main) %}
+        {% for post in category_posts %}
+            {% do posts.append(post) %}
+        {% endfor %}
+    {% endfor %}
+    {% set category_posts_main = hubdb_table_rows('102743924', '&category__contains=' ~ category_name) %}
+    {% for post in category_posts_main %}
+        {% do posts.append(post) %}
+    {% endfor %}
+{% else %}
+    {% set posts = hubdb_table_rows('102743924') %}
+{% endif %}
+
+<!-- Lọc dữ liệu -->
+{% set filtered_posts = [] %}
+
+{% if not keyword %}
+    {% set filtered_posts = posts %}
+{% else %}
+    {% for post in posts %}
+    {% if ( keyword | lower in post.answer | lower) or 
+        ( keyword | lower in post.name | lower ) or 
+        ( keyword | lower in post.keyword | lower ) %}
+            {% do filtered_posts.append(post) %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+<!-- Tính toán phân trang -->
+{% set total_posts = filtered_posts | length  %}
+{% set paging = (total_posts / 10) | round(0, 'floor') | int %}
+{% if total_posts % 10 != 0 %}
+  {% set paging = paging + 1 %}
+{% endif %}
+{% if end__post > total_posts %}
+{% set end__post = total_posts %}
+{% endif %}
+{% if (not sort) or sort=="access_sort" %}
+{% set filtered_posts = filtered_posts | sort( True, False, "access") %}
+{% endif %}
+{% if sort=="popular_sort" %}
+{% set filtered_posts = filtered_posts | sort( True, False, "popular") %}
+{% endif %}
+{% if sort=="new_sort" %}
+{% set filtered_posts = filtered_posts | sort(attribute='updatedAt', reverse=true) %}
+{% endif %}
+
+<section class="faq__category">
+    <div class="faq__category__wrap">
+        <div class="faq__category__post__wrap">
+            <div class="faq__category__post">
+                <div class="faq__category__search-title pc">
+                    {% if keyword == '' or keyword == null %}
+                        {% if category_name %}
+                        <p>『 {{category_name}} 』  内のFAQ</p>
+                        {% else %}
+                        <p>『 グローバルWiFi　よくある質問 』 内をキーワード検索した結果</p>
+                        {% endif %}
+                    {% else %}
+                        {% if category_name %}
+                        <p>『 {{category_name}} 』 内を 「 {{keyword}} 」 で文章検索した結</p>
+                        {% else %}
+                        <p>「 {{keyword}} 」 でキーワード検索した結果</p>
+                        {% endif %}
+                    {% endif %}
+                </div>
+
+                {% if filtered_posts | length > 0 %}
+                    <div class="faq__category__post__detail">
+                        <div class="faq__category__post__detail-amount pc">{{ filtered_posts | length }}件中 {{cur__post + 1 }} - {{end__post}} 件を表示</div>
+                        <div class="faq__category__post__detail__page pc">
+                            {% if page > 1 %}
+                                <a href="/category/show?name={{category_name}}&page={{page - 1}}&sort={{sort}}" class="">≪</a>
+                            {% else %}
+                                <a href="#" class="__page">≪</a>
+                            {% endif %}
+                            <div class="faq__category__post__detail__page-current">{{ page }} / {{ paging }}ページ</div>
+                            {% if page < paging %}
+                                <a href="/category/show?name={{category_name}}&page={{page + 1}}&sort={{sort}}" class="">≫</a>
+                            {% else %}
+                                <a href="#" class="__page">≫</a>
+                            {% endif %}
+                        </div>
+                        <div class="faq__category__post__detail-arrange">
+                            <select name="sort" id="faq_list_sort_select">
+                                <option value="access_sort">アクセス数順</option>
+                                <option value="new_sort">最新順</option>
+                                <option value="popular_sort">重要度順</option>
+                            </select>
+                            <div class="select__image mobile">
+                                <img src="https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/icons-36-down.png" alt="">
+                            </div>
+                            <div class="sort__arrow pc">
+                                <a href="" class="sort__arrow__up"></a>
+                                <a href="" class="sort__arrow__down"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq__category__answer__wrap">
+                        {% for index in range(cur__post, end__post) %}
+                            {% set post = filtered_posts[index] %}
+                            <div class="faq__category__post-faq">
+                                <a class="faq__category__post__question" href="/faq/show?name={{ post[1] }}">
+                                    {{ post[1] }}
+                                </a>
+                                <div class="faq__category__post__answer">
+                                    <div class="faq__category__post__answer__inner">{{ post[4] }}</div><a href='/faq/show?name={{ post[1] }}' class='show_more __link'>詳細表示</a>
+                                </div>
+                                <div class="faq__category__post__info pc">
+                                    <div class="faq__category__post__info-date">No：{{ post[7] }}</div>
+                                    <div class="faq__category__post__info-date">公開日時：{{ post.hs_created_at | datetimeformat('%Y-%m-%d %H:%M:%S')}}</div>
+                                    <div class="faq__category__post__info-date"> 更新日時：{{ post.hs_updated_at | datetimeformat('%Y-%m-%d %H:%M:%S')}}</div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="faq__category__empty">
+                        <div class="faq__category__empty-title mobile">『 {{category_name}} 』 内を 「 {{keyword}} 」 でキーワード検索した結果</div>
+                        <p >[キーワード: {{keyword}} ] を含むFAQは見つかりませんでした</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {% if total_posts > 0 %}
+    <div class="faq__category_paging pc">
+        <div class="faq__category_paging-left">{{ filtered_posts | length }}件中 {{cur__post + 1 }} - {{end__post}} 件を表示</div>
+        {% if paging > 1 %}
+        <div class="faq__category_paging-right">
+            {% if page > 1 %}
+                <a href="/category/show?name={{category_name}}&page={{page - 1}}&sort={{sort}}" class="faq__category_paging-num">≪</a>
+            {% else %}
+                <a href="#" class="faq__category_paging-num __page">≪</a>
+            {% endif %}
+            {% for item in range(1, paging + 1) %}
+                {% if page == item %}
+                    <a href="#" class="faq__category_paging-num current__page">{{ item }}</a>
+                {% else %}
+                    <a href="/category/show?name={{category_name}}&page={{item}}&sort={{sort}}" class="faq__category_paging-num">{{ item }}</a>
+                {% endif %}
+            {% endfor %}
+            {% if page < paging %}
+                <a href="/category/show?name={{category_name}}&page={{page + 1}}&sort={{sort}}" class="faq__category_paging-num">≫</a>
+            {% else %}
+                <a href="#" class="faq__category_paging-num __page">≫</a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+    <div class="faq__top pc">
+        <a href="#top">TOPへ</a>
+    </div>
+</section>
+<script>
+     $(document).ready(function () {
+        const queryString = window.location.search;
+
+        // Tạo đối tượng URLSearchParams
+        const urlParams = new URLSearchParams(queryString);
+
+        // Lấy giá trị của tham số 'name'
+        const nameParam = urlParams.get('name');
+        const sortParam = urlParams.get('sort');
+        var UrlCur="/category/show?"
+        if (sortParam) {
+      $('#faq_list_sort_select').val(sortParam); // Chọn option dựa trên value
+    }
+    if (nameParam) {
+        UrlCur+="name="+ nameParam
+    }
+    $('#faq_list_sort_select').on('change', function () {
+       selectedValue =UrlCur + "&sort="+ $(this).val(); // Lấy giá trị option được chọn
+      const currentUrl = window.location.href; // URL hiện tại
+
+      // Chỉ chuyển hướng nếu giá trị khác với URL hiện tại
+      if (selectedValue && selectedValue !== currentUrl) {
+        window.location.href = selectedValue; // Chuyển hướng đến link
+      }
+    });
+  });
+  // Lấy từ khóa (keyword) từ URL
+function getUrlParameter(name) {
+    var urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name); // Trả về giá trị của tham số nếu có, nếu không có trả về null
+}
+
+function highlightKeyword(selector, keyword) {
+    if (keyword) {
+        var keywordRegExp = new RegExp("(" + keyword + ")", "gi"); // Tạo một RegExp cho từ khóa
+
+        $(selector).each(function() {
+            var originalText = $(this).text(); // Lấy văn bản gốc
+            var highlightedText = originalText.replace(keywordRegExp, '<strong class="strong_custom">$1</strong>'); // Thay thế từ khóa bằng từ đã bôi đậm
+            $(this).html(highlightedText); // Cập nhật nội dung phần tử
+        });
+    }
+}
+
+$(document).ready(function() {
+    var keyword = getUrlParameter('keyword'); // Lấy từ khóa từ URL (ví dụ: ?keyword=yourKeyword)
+    highlightKeyword('.faq__category__post__answer__inner', keyword); // Áp dụng cho các phần tử cần bôi đậm
+});
+
+function limitCharacters(selector, charLimit) {
+    $(selector).each(function () {
+        const fullText = $(this).text().trim(); // Lấy nội dung văn bản thuần túy và loại bỏ khoảng trắng đầu cuối
+        if (fullText.length > charLimit) {
+            const limitedText = fullText.substring(0, charLimit) + "..."; // Lấy số ký tự giới hạn và thêm "..."
+            $(this).html(`<span>${limitedText}</span>`); // Thay thế nội dung bằng văn bản đã cắt
+        }
+    });
+}
+
+limitCharacters(".faq__category__post__answer__inner", 180);
+
+</script>
+<style>
+    .faq__category__search-title{
+    background: none;
+    border-bottom: 1px solid #ccc;
+    height: auto;
+    padding: 0;
+}
+.faq__category__search-title p{
+    background: none;
+    display: inline-block;
+    line-height: 3rem;
+    padding: 0 5px;
+    border-bottom: 2px solid #082b68;
+    width: 40%;
+    letter-spacing: 0.1em;
+    font-size: 1.61rem;
+    font-weight: 700;
+    width: max-content;
+    max-width: 100%;
+}
+.faq__category__post__detail{
+    display: flex;
+    justify-content:space-between ;
+}
+.faq__category__post__detail__page{
+    display: flex;
+}
+.faq__category__post__detail-amount{
+    font-size: 1.204rem;
+    margin-left: 1rem;
+}
+.faq__category__post__detail__page-current{
+    margin: 0 1rem;
+    font-size: 1.204rem;
+}
+.faq__category__post__detail__page a{
+    color: #051f49;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-size: 1.204rem;
+}
+.faq__category__post__detail__page a.active{
+    color: #051f49;
+}
+.faq__category__post__detail-arrange option{
+    font-size: 1.204rem;
+}
+.faq__category__post__detail-arrange select:focus-visible{
+    outline: none !important;
+}
+.faq__category__post__detail-arrange{
+    margin-right: 1rem;
+    display: flex;
+    /* position: relative; */
+}
+.faq__category__post__detail-arrange select{
+    border: none;
+    appearance: none;
+    padding-right: 3.5rem;
+    /* position: absolute; */
+}
+.sort__arrow__down{
+    width: 1.1rem;
+    height: 1.1rem;
+    background: url(https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/arrow_down.png) no-repeat top center;
+    
+}
+.sort__arrow__up{
+    margin-bottom: 2px;
+    width: 1.1rem;
+    height: 1.1rem;
+    background: url(https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/arrow_up.png) no-repeat center bottom;
+}
+.faq__category__post__info{
+    display: flex;
+    margin-left: 2rem;
+}
+.faq__category__post__question{
+    text-decoration: none;
+    color: #051f49;
+    font-weight: 700;
+    padding-left: 2rem;
+    background: url(https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/ico_q_s.png) no-repeat left center;
+}
+.faq__category__post__question:hover{
+    color: #025CD3;
+    text-decoration: underline;
+}
+.faq__category__post__answer__inner{
+    display: inline;
+}
+.faq__category__post__answer__inner br{
+    display: none !important;
+}
+.faq__category__post__answer__inner p, .faq__category__post__answer__inner span,.faq__category__post__answer__inner h2, .faq__category__post__answer__inner h3, .faq__category__post__answer__inner *{
+    font-weight: 400 !important;
+    margin: 0 !important;
+    font-family: ヒラギノ角ゴ ProN W3, Hiragino Kaku Gothic ProN, メイリオ, Meiryo, sans-serif !important;
+    display: inline !important;
+    color: #051f49 !important;
+}
+.faq__category__post__answer{
+    font-size: 1.4rem;
+    padding-left: 2rem;
+    background: url(https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/ico_a_s.png) no-repeat left top .8rem;
+}
+.faq__category__post-faq{
+    padding: .5rem 1rem;
+    border-bottom: 1px dotted #ccc;
+}
+.faq__category__post-faq:hover{
+    background-color: #f5f5f5;
+}
+.faq__category__post__info-date{
+    margin-right: 1rem;
+    font-size: 1.204rem;
+    color: #999;
+}
+.__page{
+    color: #ddd !important;
+    text-decoration: none !important;
+    cursor: auto;
+}
+.current__page{
+    font-weight: 700;
+    cursor: auto;
+    text-decoration: none !important;
+    color: #051f49 !important;
+}
+.faq__category_paging-num{
+    padding: 3px .6rem;
+    text-decoration: none;
+    color: #051f49;
+}
+.faq__category_paging-num:hover{
+    color: #025CD3;
+    text-decoration: underline;
+}
+.faq__category_paging-right{
+    display: flex;
+}
+.faq__category_paging{
+    display: flex;
+    justify-content: space-between;
+}
+.faq__category_paging-left{
+    font-size: 1.204rem;
+    margin-left: 1rem;
+}
+.select__image{
+    width: 1.8rem;
+    border-radius: 50%;
+    background-color: #888;
+    background: rgba(0, 0, 0, .4);
+    height: 1.8rem;
+}
+.show_more{
+    display: inline;
+    text-decoration: none;
+    color: #051f49;
+}
+.faq__category__empty{
+    margin: 1.5rem .3rem 2.0rem .0rem;
+    background-color: #F6FFF2;
+    border: 1px solid #E4E4E4;
+    padding: 2rem;
+}
+.faq__category__post__answer__inner img{
+    display: none !important;
+}
+.faq__category__post__answer__inner a{
+    text-decoration: none;
+    pointer-events: none;
+}
+.faq__top{
+    display: flex;
+    justify-content: right;
+    margin: 4rem 0 1rem;
+}
+.faq__top a{
+    color: #051f49;
+    padding: 2px;
+    padding-left: 2rem;
+    text-decoration: none;
+    background: url(https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/arrow_top.png) no-repeat left center;
+}
+.faq__top a:hover{
+    text-decoration: underline;
+    color: #025CD3;
+}
+@media screen and (max-width:767px) {
+    .faq__category{
+        margin-top: -1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .faq__category__search-title{
+        border: none;
+        border-radius: .8rem;
+        padding: .3rem 1.5rem;
+        background: -webkit-gradient(linear, left top, left bottom, from(#3981B1), to(#08609B));
+    }
+    .faq__category__search-title.question{
+        border-radius: .8rem .8rem 0 0;
+        display: flex;
+        justify-content: space-between;
+    }
+    .faq__category__search-title p{
+        border: none;
+        width: 100%;
+        color: #fff;
+        font-size: 1.4rem;
+        padding-left: 0;
+        letter-spacing: normal;
+        width: auto !important;
+    }
+    .faq__category__search__input{
+        flex-direction: column;
+    }
+    .faq__category__search__inner{
+        margin: 0;
+    }
+    .faq__category__search{
+        margin-bottom: 2rem !important;
+    }
+    .faq__category__post__detail{
+        justify-content: right;
+    }
+    .faq__category__post__detail-arrange option{
+        font-size: 1.4rem;
+        color: #444;
+        font-weight: 700;
+    }
+    .faq__category__post__detail-arrange select{
+        background-image: -webkit-linear-gradient(top, #fdfdfd, #eee);
+        margin-right: 1.2rem !important;
+        color: #444;
+        font-weight: 700;
+        padding: .84rem 4.5rem .84rem 2rem;
+        margin: 0 !important;
+        font-size: 1.4rem;
+        line-height: 2.24rem;
+    }
+    .faq__category__post__detail-arrange{
+        border-radius: 1.5rem;
+        border: 1px solid #ccc;
+    background: -webkit-linear-gradient(top, #fdfdfd, #eee);
+    text-shadow: 0 1px 1px #f6f6f6;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+    padding: 0 !important;
+        overflow: hidden;
+    margin:.7rem 0 !important;
+
+    }
+    .faq__category__post__question, .faq__category__post__answer{
+        background-image: unset;
+    }
+    .faq__category__post-faq{
+        border-bottom: 1px solid #ccc;
+        background-image: -webkit-linear-gradient(top, #fdfdfd, #eee);
+        /* display: flex; */
+        border-left: 1px solid #eee;
+        border-right: 1px solid #eee;
+        text-shadow: 0 1px 1px #f6f6f6;
+    }
+    .faq__category__post__question{
+        font-size: 1.6rem;
+        color: #2F3E46;
+        margin: .6em 0;
+    }
+    .faq__category__post__answer{
+        font-size: 1.2rem;
+        color: #2F3E46;
+        margin: .6em 0;
+    }
+    .select__image{
+        position: absolute;
+        right: 1.5rem;
+        top: 1.1rem;
+    }
+    .faq__category__search-title.question{
+        display: flex !important;
+        justify-content: space-between;
+    }
+    .faq__category__search-title.question p{
+        padding-right: 0;
+    }
+    .faq__category__answer__wrap{
+        border-radius: 0 0 1rem 1rem;
+        overflow: hidden;
+    }
+    .faq__category__empty{
+        padding: 0;
+        border: none;
+        margin: 0;
+        background-color: #fff;
+    }
+    .faq__category__empty p{
+        color: #333;
+    }
+
+}
+strong.strong_custom{
+    font-weight: 700 !important;
+}
+</style>

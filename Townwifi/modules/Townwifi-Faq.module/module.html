@@ -1,0 +1,225 @@
+<!-- module html  -->
+{% set posts = hubdb_table_rows('102743924', '&popular__eq=true') %}
+    {% set postsAll = hubdb_table_rows('102743924') %}
+     <!-- id là    {{postsAll[0].id}} -->
+{% set sorted_popular_posts = posts | sort(attribute='published_date', reverse=true) %}
+    {% set sorted_popular_posts_all = postsAll | sort(attribute='published_date', reverse=true) %}
+{% set popular_posts = [] %}
+{% set latest_posts = [] %}
+{% set counter = 0 %}
+    {% set counterAll = 0 %}
+{% for post in sorted_popular_posts %}
+{% if counter < 5 %}
+    {% do popular_posts.append(post) %}
+    {% set counter = counter + 1 %}
+{% endif %}
+{% endfor %}
+{% for post in sorted_popular_posts_all %}
+    {% if counterAll < 5 %}
+        {% do latest_posts.append(post) %}
+        {% set counterAll = counterAll + 1 %}
+    {% endif %}
+    {% endfor %}
+<section class="faq">
+    <div class="faq__popular__keyword pc">
+        <div class="faq__search-title">
+            <p>{{module.keyword.text_title_keyword}}</p>
+        </div>
+        <div class="faq__popular__keyword-keyword">
+            {% for key in module.keyword.text_keyword %}
+                <a href="/category/show?keyword={{key}}&site_domain=globalwifi">{{key}}</a>
+                    
+            {% endfor %}
+        </div>
+    </div>
+    <div class="faq__commoncategory pc">
+        <div class="faq__search-title">
+            <p>{{module.common_category.text_title}}</p>
+        </div>
+        <div class="faq__commoncategory-image">
+            {% for key in module.common_category.image %}
+                <a class="faq__commoncategory-link" href="{{key.link_category.url.href}}">
+                    <img class="original__image" src="{{key.image_category.src}}" alt="">
+                    <img class="hover__image" src="{{key.image_hover_category.src}}" alt="">
+                </a>
+                    
+            {% endfor %}
+        </div>
+    </div>
+    <div class="faq__newfaq ">
+    <div class="faq__newfaq__wrap">
+    <div class="faq__search-title">
+        <p>最新のFAQ</p>
+    </div>
+    <div class="faq__newfaq__wrap">
+        {% for ques in latest_posts %}
+        <div class="faq__newfaq__wrap-category">
+            <a href='/faq/show?name={{ques[1]}}'>{{ques[1]}}</a>
+        <div class="faq__newfaq__wrap__image mobile">
+            <div class="faq__newfaq__wrap-image">
+                <img src="https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/icons-36-white-right.png" alt="">
+            </div>
+        </div>
+        </div>
+        {% endfor %}
+    </div>
+   </div>
+   <div class="faq__newfaq__wrap">
+   <div class="faq__search-title">
+       <p>閲覧の多いFAQ</p>
+   </div>
+   <div class="faq__newfaq__wrap">
+       {% for ques in popular_posts %}
+       <div class="faq__newfaq__wrap-category">
+           <a href='/faq/show?name={{ques[1]}}'>{{ques[1]}}</a>
+       <div class="faq__newfaq__wrap__image mobile">
+           <div class="faq__newfaq__wrap-image">
+               <img src="https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/icons-36-white-right.png" alt="">
+           </div>
+       </div>
+       </div>
+       {% endfor %}
+   </div>
+  </div>
+    </div>
+    <div class="faq__top pc">
+        <a href="#top">TOPへ</a>
+    </div>
+</section>
+<script>
+    // const HoverImage=document.querySelector(".faq__commoncategory-link")
+var faq =document.querySelectorAll('.faq__newfaq__wrap')
+faq[0].classList.add("hidden")
+</script>
+<style>
+    
+.faq__popular__keyword-keyword{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+.faq__popular__keyword-keyword a{
+    background: none;
+    border: 1px solid #6c8a9c;
+    color: #0a4087;
+    padding: 1.5px 1.2rem;
+    border-radius: 5px;
+    /* line-height: 2.5; */
+    text-decoration: none;
+    margin-bottom: .8rem;
+    margin-right: 1.5rem;
+}
+.faq__popular__keyword{
+    margin-bottom: 2.4rem;
+}
+.hover__image{
+    display: none;
+}
+.faq__commoncategory-image{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2.3rem;
+}
+.faq__commoncategory-link:hover .original__image {
+    display: none;
+}
+
+.faq__commoncategory-link:hover .hover__image {
+    display: block;
+}
+.faq__commoncategory-image a{
+    width: 20rem;
+    margin:0 1.6rem 1rem 0 ;
+    height: 14rem;
+}
+.faq__commoncategory-image img{
+    height: 100%;
+}
+.faq__newfaq a{
+    margin-left: 1rem;
+    text-decoration: none;
+    color: #051f49;
+    margin-bottom: .5rem;
+    padding-left: 1.8rem;/* day*/
+    display: table;
+    background: url(https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/arrow.png) no-repeat scroll left .4rem top .8rem;
+}
+.faq__newfaq a:hover{
+    text-decoration: underline;
+    color: #025CD3;
+}
+.faq__newfaq__wrap{
+    margin-bottom: 2.4rem;
+}
+.faq__top{
+    display: flex;
+    justify-content: right;
+    margin: 1rem 0;
+}
+.faq__top a{
+    color: #051f49;
+    padding: 2px;
+    padding-left: 2rem;
+    text-decoration: none;
+    background: url(https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/arrow_top.png) no-repeat left center;
+}
+.faq__top a:hover{
+    text-decoration: underline;
+    color: #025CD3;
+}
+.faq__newfaq__wrap-image{
+    width: 1.8rem;
+    border-radius: 50%;
+    background-color: #888;
+    background: rgba(0, 0, 0, .4);
+    height: 1.8rem;
+    margin:1rem 1.1rem;
+}
+.faq__newfaq__wrap__image{
+    display: flex;
+    align-items: center;
+}
+@media screen and (max-width:767px) {
+    .faq__newfaq__wrap-category a{
+        font-size: 1.4rem;
+        line-height: 2.24rem;
+        font-weight: 700;
+        margin-left: 0 !important;
+    }
+    .faq__newfaq{
+        text-shadow: 0 1px 1px #fff
+    }
+    .faq__newfaq__wrap-category a{
+        background-image: unset;
+        margin-bottom: 0;
+        padding-left: 1.5rem !important;
+        padding: 1rem 0rem ;
+    }
+    .faq__newfaq__wrap-category{
+        margin-left: 0;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ccc;
+        background-image: -webkit-linear-gradient(top, #fdfdfd, #eee);
+        /* display: flex; */
+        border-left: 1px solid #eee;
+        border-right: 1px solid #eee;
+        text-shadow: 0 1px 1px #f6f6f6;
+    }
+    .faq__newfaq__wrap{
+        border-radius: 0 0 .8rem .8rem;
+        overflow: hidden;
+
+    }
+    .faq__newfaq__wrap.hidden{
+        display: none;
+    }
+    .faq__newfaq__wrap{
+        margin-bottom: 0;
+    }
+    /* background-color: #666;
+    background: rgba(0, 0, 0, .4); */
+}
+</style>

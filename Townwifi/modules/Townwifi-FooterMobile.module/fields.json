@@ -1,0 +1,244 @@
+[ {
+  "id" : "92f79257-27e8-5bbd-890c-eb39364c8082",
+  "name" : "image_download_app",
+  "display_width" : null,
+  "label" : "Image Download App",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "default" : {
+    "size_type" : "auto",
+    "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/footer_bnr_app_appwari.png",
+    "alt" : "footer_bnr_app_appwari",
+    "loading" : "lazy",
+    "width" : 640,
+    "height" : 170,
+    "max_width" : 640,
+    "max_height" : 170
+  }
+}, {
+  "id" : "53ca10ee-370c-d505-6e3d-e106a9c08879",
+  "name" : "link_download_app",
+  "display_width" : null,
+  "label" : "Link Download App",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+  "show_advanced_rel_options" : false,
+  "type" : "link",
+  "default" : {
+    "url" : {
+      "content_id" : null,
+      "href" : "https://townwifi.com/sp/receive/",
+      "type" : "EXTERNAL"
+    },
+    "open_in_new_tab" : false,
+    "no_follow" : false
+  }
+}, {
+  "id" : "ed774db4-08fc-fc2b-6933-7fd1776c9a01",
+  "name" : "menu",
+  "display_width" : null,
+  "label" : "Menu",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "9006fe32-4b50-8243-edcb-2305d8ff6001",
+    "name" : "text_title",
+    "display_width" : null,
+    "label" : "Text Title",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : "メニュー"
+  }, {
+    "id" : "23af18df-e554-bc05-63be-1c785fe3cec6",
+    "name" : "category_left",
+    "display_width" : null,
+    "label" : "Category Left",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : null,
+      "max" : null,
+      "sorting_label_field" : null,
+      "default" : null
+    },
+    "children" : [ {
+      "id" : "087f2017-e753-86eb-b378-322ecd38f8cb",
+      "name" : "text_category",
+      "display_width" : null,
+      "label" : "Text Category",
+      "required" : false,
+      "locked" : false,
+      "validation_regex" : "",
+      "allow_new_line" : false,
+      "show_emoji_picker" : false,
+      "type" : "text",
+      "default" : "ホーム"
+    }, {
+      "id" : "7fe16f0d-4a11-3c35-8188-566bd2ae9162",
+      "name" : "link_category",
+      "display_width" : null,
+      "label" : "Link Category",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+      "show_advanced_rel_options" : false,
+      "type" : "link",
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "https://townwifi.com/sp/",
+          "type" : "EXTERNAL"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "default" : [ ]
+  }, {
+    "id" : "88da1c79-a267-938a-2fa7-6e31312a9366",
+    "name" : "category_right",
+    "display_width" : null,
+    "label" : "Category Right",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : null,
+      "max" : null,
+      "sorting_label_field" : null,
+      "default" : null
+    },
+    "children" : [ {
+      "id" : "43a8e2eb-56dc-66b8-ead2-a5b406275bdb",
+      "name" : "text_category",
+      "display_width" : null,
+      "label" : "Text Category",
+      "required" : false,
+      "locked" : false,
+      "validation_regex" : "",
+      "allow_new_line" : false,
+      "show_emoji_picker" : false,
+      "type" : "text",
+      "default" : " はじめてのグローバルWiFi"
+    }, {
+      "id" : "93842899-7f4b-93fd-0707-c7f132f02d42",
+      "name" : "link_category",
+      "display_width" : null,
+      "label" : "Link Category",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+      "show_advanced_rel_options" : false,
+      "type" : "link",
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "https://townwifi.com/guide/",
+          "type" : "EXTERNAL"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "default" : [ ]
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "default" : {
+    "text_title" : "メニュー",
+    "category_left" : [ ],
+    "category_right" : [ ]
+  }
+}, {
+  "id" : "125279ab-b44f-8ff2-67ee-067c796032e7",
+  "name" : "group_image",
+  "display_width" : null,
+  "label" : "Group Image",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "0e04f3b7-b8b4-ce5d-7e0d-eb51e1c39b43",
+    "name" : "image",
+    "display_width" : null,
+    "label" : "image",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : null,
+      "max" : null,
+      "sorting_label_field" : null,
+      "default" : null
+    },
+    "children" : [ {
+      "id" : "ef95ca6e-4c4b-0913-a5d9-f0882a16d395",
+      "name" : "image",
+      "display_width" : null,
+      "label" : "Image",
+      "required" : false,
+      "locked" : false,
+      "responsive" : true,
+      "resizable" : true,
+      "show_loading" : false,
+      "type" : "image",
+      "default" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/footer_bnr_gobeyond.png",
+        "alt" : "footer_bnr_gobeyond",
+        "loading" : "lazy",
+        "width" : 640,
+        "height" : 170,
+        "max_width" : 640,
+        "max_height" : 170
+      }
+    }, {
+      "id" : "511f810d-a5de-d193-7137-a8bda6676525",
+      "name" : "link",
+      "display_width" : null,
+      "label" : "Link",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+      "show_advanced_rel_options" : false,
+      "type" : "link",
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "default" : [ ]
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "default" : {
+    "image" : [ ]
+  }
+} ]

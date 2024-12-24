@@ -1,0 +1,125 @@
+<!-- module html  -->
+{% set category_name = request.query_dict.name %}
+{% set name_link = [] %}
+{% set all_post = hubdb_table_rows('102743924' , '&name='~category_name) %}
+{% do name_link.append(all_post[0][6][0][1]) %}
+
+{% macro get_all_parent_categories(category) %}
+{% do name_link.append(category[0][1]) %}
+{% if category[0][5]%}
+{{ get_all_parent_categories(category[0][5])}}
+{% endif %}
+{% endmacro %}
+{{ get_all_parent_categories(all_post[0][6][0][5]) }}
+
+<section class="pan">
+    <div class="pan__icon mobile">
+                <img src="https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/cate_on.gif" alt="">
+    </div>
+    <li class="pan__before"><a class="__link" href="/category/show">グローバルWiFi　よくある質問</a></li>
+    {% for item in name_link|reverse %}
+    <!-- {{ item }} -->
+        <li class="pan__before"><a class="__link" href="/category/show?name={{ item }}">{{item}}</a></li>
+{% endfor %}
+<li>{{category_name}}</li>
+</section>
+<div class="pan__mobile mobile active">
+    <div class="pan__mobile__icon">
+        <img src="https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/cate_off.gif" alt="">
+    </div>
+    <p>カテゴリー表示</p>
+</div>
+<style>
+    .pan__before a, .pan li{
+    text-decoration: none;
+    font-size: 1.204rem;
+    }
+    .pan__before, .pan li{
+        list-style-type: none;
+        position: relative;
+    }
+    .pan__before a:hover{
+        text-decoration: underline;
+    }
+    .pan{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .pan__before::before{
+        content: ">";
+        display: inline-block;
+        right: 0;
+        padding: 0 0 0 3px;
+        position: absolute;
+        text-decoration: none;
+    }
+    .pan__before{
+        padding-right: 1.5rem;
+    }
+    @media screen and (max-width:767px) {
+        .pan__before a, .pan li{
+            font-size: 1.4rem;
+            line-height: 2.24rem;
+            }
+            .pan li{
+                display: inline-block;
+            }
+            .pan__before a {
+                color: #2489CE;
+                font-weight: 700;
+                text-decoration: underline;
+            }
+            .pan{
+                display: none;
+                margin: 0 2.5rem;
+                padding-left: 1rem;
+
+            }
+            .pan__mobile.active{
+                display: flex !important;
+            }
+            .pan__mobile__icon{
+                width: 1.8rem;
+                position: absolute;
+                left: 0;
+                top: .2rem;
+            }
+            .pan__mobile{
+                position: relative;
+                margin: 0 2.5rem;
+                display: none !important;
+            }
+            .pan__mobile p{
+                color: #2489CE;
+                text-decoration: underline;
+                font-size: 1.4rem;
+                font-weight: 700;
+                margin-left: 2rem;
+            }
+            .pan.active{
+                display: block;
+            }
+            .pan__before:nth-child(2)::before{
+                content: "";
+            }
+            .pan__icon{
+                width: 1.8rem;
+                position: absolute;
+                left: 2.5rem;
+            }
+    }
+</style>
+<script>
+    var panMobile = document.querySelector(".pan__mobile")
+var panIcon = document.querySelector(".pan__icon")
+var pan = document.querySelector(".pan")
+panMobile.addEventListener("click", ()=>{
+    panMobile.classList.remove("active")
+    pan.classList.add("active")
+})
+panIcon.addEventListener("click", ()=>{
+    pan.classList.remove("active")
+    panMobile.classList.add("active")
+})
+
+</script>

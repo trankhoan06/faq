@@ -1,0 +1,43 @@
+<!-- module html  -->
+<div class="header__main">
+    <div class="header__top">
+        <div class="header__top__left">
+{{module.header_top.text_left}}
+        </div>
+        <div class="header__top__right">
+            <a href="{{module.header_top.text_right.link_text_1.url.href}}" class="header__top__right1 __link">{{module.header_top.text_right.text_1}}</a>
+            <a href="{{module.header_top.text_right.link_text_2.url.href}}" class="header__top__right2 __link">{{module.header_top.text_right.text_2}}</a>
+        </div>
+    </div>
+</div>
+<style>
+    .header__top{
+    display: flex;
+    justify-content: space-between;
+    max-width: 98rem;
+    margin: auto;
+    padding-top: 0.7rem;
+    padding-bottom: 0.8rem;
+    background-color: #fff;
+}
+.header__top__left{
+    font-size: 1rem;
+    font-weight: 400;
+    color: #999999;
+}
+.header__top__right1, .header__top__right2{
+    color:#051f49;
+    font-size: 1.2rem;
+}
+.header__top__right{
+    display: flex;
+}
+.header__top__right1{
+    margin-right: 2.5rem;
+}
+@media screen and (max-width:768px){
+    .header__top{
+        display: none;
+    }
+}
+</style>

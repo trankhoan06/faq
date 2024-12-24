@@ -1,0 +1,18 @@
+<!-- module html  -->
+<section class="leftsitebar__logo">
+    <a href="{{module_link_logo.url.href}}">
+        <img class="pc" src="{{module.image_logo.src}}" alt="">
+        <img class="mobile" src="{{module.image_logo_mobile.src}}" alt="">
+    </a>
+</section>
+<style>
+    .leftsitebar__logo{
+    margin-top: 1.5rem;
+}
+@media screen and(max-width:767px) {
+    .leftsitebar__logo{
+        margin-top: -1rem;
+        margin-bottom: 1.5rem;
+    }
+}
+</style>

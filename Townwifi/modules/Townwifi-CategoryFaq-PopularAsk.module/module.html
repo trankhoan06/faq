@@ -1,0 +1,188 @@
+<!-- module html  -->
+{% set category_name = request.query_dict.name %}
+{% set page = request.query_dict.page %}
+{%set posts=hubdb_table_rows('103094635')%}
+{%set post_child=[] %}
+{% for post in posts %}
+{% for parent in post[5] %}
+<!-- <p>{{parent}}</p> -->
+        {% if category_name ==parent[1] %}
+        {% do post_child.append(post) %}
+        {% endif %}
+   {% endfor %}
+   {% endfor %}
+
+
+   {% macro category_child(post1) %}
+    <div class="faq__category__returnreceive__left__wrap_child">
+    {% for post in posts %}
+    {% for parent in post[5] %}
+    {% if post1[1]==parent[1] %}
+    <div class="faq__category__returnreceive__left__wrap child">
+        <div class="faq__category__returnreceive__left__wrap__inner">
+            <div class="faq__category__returnreceive__left-link">
+                <a href="/category/show?name={{post[1]}}">{{post[1]}}</a>
+            </div>
+            <div class="faq__newfaq__wrap__image mobile">
+                <div class="faq__newfaq__wrap-image">
+                    <img src="https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/icons-36-white-right.png" alt="">
+                </div>
+            </div>
+        </div>
+        {{category_child(post)}}
+        </div>
+    {% endif %}
+       
+    {% endfor %}
+    {% endfor %}
+    </div>
+     {% endmacro %}
+
+
+{% if post_child %}
+    <section class="faq__category__returnreceive">
+        <div class="faq__category__search-title">
+            <p>{{category_name}}</p>
+        </div>
+        <div class="faq__category__returnreceive-inner">
+            <div class="faq__category__returnreceive__left">
+                {% for post in post_child %}
+                <!-- <p>{{post[5]}}</p> -->
+                   <div class="faq__category__returnreceive__left__wrap">
+                    <div class="faq__category__returnreceive__left__wrap__inner">
+                        <div class="faq__category__returnreceive__left-link">
+                            <a href="/category/show?name={{post[1]}}">{{post[1]}}</a>
+                        </div>
+                        <div class="faq__newfaq__wrap__image mobile">
+                             <a class="faq__newfaq__wrap-image-wrap" href="/category/show?name={{post[1]}}">
+                             <div class="faq__newfaq__wrap-image">
+                                 <img src="https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/icons-36-white-right.png" alt="">
+                             </div>
+                             </a>
+                        </div>
+                    </div>
+                    {{category_child(post)}}
+                   </div>
+            {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    <style>
+        .faq__category__returnreceive__left a{
+    font-weight: 700;
+    text-decoration: none;
+    color: #051f49;
+    margin-bottom: 1rem;
+    width: max-content;
+}
+.faq__category__returnreceive__left__wrap_child{
+    display: none;
+}
+.faq__category__returnreceive__left__wrap{
+    width: 50% ;
+}
+.faq__category__returnreceive__left{
+    display: flex;
+    flex-wrap: wrap ;
+}
+.faq__category__returnreceive__left a:hover{
+    font-weight: 700;
+    text-decoration: underline;
+    color: #025CD3;
+}
+.faq__category__returnreceive-inner{
+    margin: 1rem;
+}
+.faq__category__returnreceive{
+    margin-top: 2.4rem;
+}
+.faq__category__returnreceive__left__wrap.child{
+    border-top: 1px solid #ccc;
+    border-bottom: none;
+}
+.faq__category__returnreceive__left__wrap.child a{
+    margin-left: 1rem;
+}
+@media screen and (max-width:767px) {
+    .faq__category__returnreceive__left__wrap.has-children>.faq__category__returnreceive__left__wrap__inner .faq__category__returnreceive__left-link:first-child{
+        border-right: 1px solid #ccc;
+    }
+    .faq__category__returnreceive__left__wrap.has-children>.faq__category__returnreceive__left__wrap__inner .faq__newfaq__wrap-image{
+        margin: .8rem;
+    padding: .3rem;
+    border: 1px solid #ccc;
+    background: transparent;
+    }
+    .faq__category__returnreceive__left__wrap.has-children>.faq__category__returnreceive__left__wrap__inner .faq__newfaq__wrap-image img{
+        background: rgba(0, 0, 0, .4);
+        border-radius: 50%;
+    }
+    .faq__category__returnreceive__left-link{
+        display: flex;
+        align-items: center;
+        flex: auto;
+    }
+    .faq__newfaq__wrap__image{
+         flex: none;
+    }
+    .faq__category__returnreceive{
+        margin-top: 0 ;
+        margin-bottom: 3rem;
+    }
+    .faq__category__returnreceive-inner{
+        margin: 0;
+    }
+    .faq__category__returnreceive__left{
+        border-radius: 0 0 .8rem .8rem;
+        overflow: hidden;
+        flex-direction: column;
+        text-shadow: 0 1px 1px #fff
+    }
+    .faq__category__returnreceive__left a{
+        width: 100%;
+        margin-bottom: 0;
+        font-size: 1.4rem;
+        line-height: 2.24rem;
+        font-weight: 700;
+        margin-bottom: 0;
+        padding-left: 1.5rem !important;
+        padding: 1rem 0rem ;
+    }
+    .faq__category__returnreceive__left__wrap{
+        margin-left: 0;
+        width: 100%;
+        border-bottom: 1px solid #ccc;
+        background-image: -webkit-linear-gradient(top, #fdfdfd, #eee);
+        /* display: flex; */
+        border-left: 1px solid #eee;
+        border-right: 1px solid #eee;
+        text-shadow: 0 1px 1px #f6f6f6;
+        width: 100% ;
+    }
+    .faq__category__returnreceive__left__wrap__inner{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+    </style>
+    <script>
+        if($(window).width() < 768){
+  // $('.faq__category__returnreceive__left__wrap_child').each(function() {
+  //   $(this).find
+  // }
+  // );
+  $(".faq__category__returnreceive__left__wrap").each(function(e) {
+    if($(this).find('.faq__category__returnreceive__left__wrap_child .faq__category__returnreceive__left__wrap.child').length > 0){
+      $(this).addClass('has-children');
+    }
+});
+$('.faq__category__returnreceive__left__wrap.has-children>.faq__category__returnreceive__left__wrap__inner .faq__category__returnreceive__left-link').on('click', function(e) {
+    e.preventDefault();
+    $(this).toggleClass('active');
+    $(this).closest('.faq__category__returnreceive__left__wrap').find('.faq__category__returnreceive__left__wrap_child').slideToggle();
+});
+}
+
+
+    </script>

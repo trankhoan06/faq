@@ -1,0 +1,72 @@
+<!-- module html  -->
+<div class="footer__main__mobile mobile">
+    <a href="{{module.link_download_app.url.href}}" class="footer__main__mobile__down">
+        <img src="{{module.image_download_app.src}}" alt="">
+    </a>
+    <div class="footer__main__mobile__menu">
+        <div class="footer__main__mobile__menu-title">{{module.menu.text_title}}</div>
+       <div class="footer__main__mobile__menu__inner">
+        <div class="footer__main__mobile__menu-left">
+            {% for cate in module.menu.category_left %}
+                    <a  href="{{cate.link_category.url.href}}">{{cate.text_category}}</a>
+            {% endfor %}
+        </div>
+        <div class="footer__main__mobile__menu-left right">
+            {% for cate in module.menu.category_right %}
+                    <a href="{{cate.link_category.url.href}}">{{cate.text_category}}</a>
+            {% endfor %}
+        </div>
+       </div>
+    </div>
+    <div class="footer__main__mobile__image">
+        {% for ima in module.group_image.image %}
+                    <a  href="{{ima.link.url.href}}">
+                        <img src="{{ima.image.src}}" alt="">
+                    </a>
+            {% endfor %}
+    </div>
+
+</div>
+<style>
+    .footer__main__mobile{
+    padding: 1.5rem 1.5rem 0 2rem;
+    background-color: rgb(226, 236, 239);
+    padding-bottom: 2rem;
+}
+.footer__main__mobile__down{
+    margin:0 0 1.5rem 0;
+}
+.footer__main__mobile__menu-title{
+    color: rgb(255, 255, 255);
+    font-size: 1.5rem;
+    font-weight: 500;
+    background: rgb(21, 121, 198);
+    padding: .8rem 1.2rem;
+}
+.footer__main__mobile__menu{
+    border-radius: .8rem;
+    overflow: hidden;
+    margin-bottom: 3rem;
+
+}
+.footer__main__mobile__menu__inner{
+    display: flex;
+    background-color: #fff;
+}
+.footer__main__mobile__menu-left a{
+    padding: .8rem 0 .8rem 1.2rem;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: #000;
+    border-bottom: 1px solid rgb(204, 204, 204);
+}
+.footer__main__mobile__menu-left.right{
+    border-left: 1px solid rgb(204, 204, 204) ;
+}
+.footer__main__mobile__menu-left{
+    width: 50%;
+}
+.footer__main__mobile__image a{
+    margin-bottom: .8rem;
+}
+</style>

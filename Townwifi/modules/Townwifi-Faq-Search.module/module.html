@@ -1,0 +1,337 @@
+<!-- module html  -->
+<section class="faq__search__main">
+    <div class="faq__search">
+        <div class="faq__search-title">
+            <p>{{module.search.text_title}}</p>
+        </div>
+       <div class="faq__search__inner">
+        <div class="faq__search__description pc">
+            <p>{{module.search.text_description}}</p>
+            <div class="faq__search__description-image">
+                <img src="https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/icon_question.png" alt="">
+            </div>
+            <div class="faq__search__description__explain" style="display: none;">{{module.search.text_explain}}</div>
+        </div>
+        <div class="faq__search__input">
+            <div class="faq__search__input-input">
+                <div class='input_search_wrap'><input type="text" name="keyword" class='faq input_search'>
+                    <div class="input_search_suggest"></div>
+                </div>
+                <div class="faq__search__input-icon mobile">
+                    <img src="https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/icons-36-white-search-1.png" alt="">
+                </div>
+                <div class="faq__search__input__wrap-close mobile">
+                    <div class="faq__search__input-close">
+                        <img src="https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/icons-36-white-close.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="faq__search__input-submit">
+                <a href='/'  name="commit">{{module.search.text_search}}</a> 
+            </div>
+        </div>
+       </div>
+    </div>
+</section>
+<script>
+// get  param keyword from url
+let url = new URL(window.location.href);
+let keyword = url.searchParams.get("keyword");
+let category = url.searchParams.get("name");
+if(keyword){
+    $('.faq__search__input-input input').val(keyword);
+}
+$('.faq__search__input-submit a').on('click',function(e){
+    e.preventDefault();
+    let keyword = $('.faq__search__input-input input').val().trim();
+    if(category){
+        window.location.href = '/category/show?keyword=' + keyword + '&name=' + category;
+    }
+    else{
+        window.location.href = '/category/show?keyword=' + keyword;
+    }
+})
+const input = $('.faq__search__input-input input');
+const close = $('.faq__search__input__wrap-close'); // Tìm thẻ cha bọc ô input
+        if (input.val().trim() !== '') {
+                close.addClass('active'); // Thêm class 'active' nếu có giá trị
+            }
+        input.on('input', function () {
+            if (input.val().trim() !== '') {
+                close.addClass('active'); // Thêm class 'active' nếu có giá trị
+            } else {
+                close.removeClass('active'); // Xóa class 'active' nếu không có giá trị
+            }
+        });
+        close.on('click',function(){
+            input.val('');
+            close.removeClass('active')
+        })
+  var keywords = [
+    {% for row in hubdb_table_rows('102743924') %}
+      {% if row.keyword %}
+        "{{ row.keyword }}"{% if not forloop.last %}, {% endif %}
+      {% endif %}
+    {% endfor %}
+  ];
+  keywords = keywords.map(keyword => keyword.toLowerCase());
+
+
+
+  let typingTimer; // Timer for debounce
+      const typingDelay = 200; // Delay in milliseconds
+      function checkKeywords() {
+        const inputValue = $(".input_search").val().trim().toLowerCase(); // Get input value
+        const $outputContainer = $(".input_search_suggest");
+        $outputContainer.empty(); // Clear previous results
+        if(inputValue ){
+
+          const matchedKeywords = keywords.filter(keyword => keyword.includes(inputValue));
+          if(matchedKeywords.length > 0) {
+            $('.input_search_suggest').addClass('active');
+            matchedKeywords.forEach(keyword => {
+            const $span = $("<span>").addClass("keyword-span").text(keyword);
+            $outputContainer.append($span);
+          });
+          }
+          else{
+            $('.input_search_suggest').removeClass('active');
+          }
+          }
+            else{
+                $('.input_search_suggest').empty().removeClass('active');
+            }
+      }
+      $(".input_search").on("input", function () {
+        clearTimeout(typingTimer); // Clear previous timer
+        typingTimer = setTimeout(checkKeywords, typingDelay); // Set new timer
+      });
+      $(document).on('click', function (e) {
+        // Check if the click is outside the input and suggestion box
+        if (!$(e.target).closest('.input_search').length && !$(e.target).closest('.input_search_suggest').length) {
+        $('.input_search_suggest').removeClass('active');
+        }
+      });
+      $('.input_search_suggest').on('click', '.keyword-span', function () {
+        console.log($(this).text());
+        const keyword = $(this).text();
+        $(".input_search").val(keyword);
+        $('.input_search_suggest').removeClass('active');
+        });
+        $('.faq__search__description-image').on('click', function(){
+  $(this).next('.faq__search__description__explain').fadeToggle();
+})
+$(document).on('click', function(e) {
+  if ($(e.target).closest('.faq__search__description-image').length === 0)
+    $('.faq__search__description__explain').fadeOut();
+});
+</script>
+<style>
+    .faq__search{
+    margin-bottom: 3.9rem;
+}
+.faq__search-title{
+    background: none;
+    border-bottom: 1px solid #ccc;
+    height: auto;
+    padding: 0;
+}
+.faq__search-title p{
+    background: none;
+    display: inline-block;
+    line-height: 3rem;
+    padding: 0 5px;
+    border-bottom: 2px solid #082b68;
+    width: 40%;
+    letter-spacing: 0.1em;
+    font-size: 1.61rem;
+    font-weight: 600;
+}
+.faq__search__description{
+    display: flex;
+    margin-top: -.4rem ;
+    margin-bottom: .3rem;
+    position: relative;
+}
+.faq__search__description__explain{
+    position: absolute;
+    padding: .7rem;
+    border: dashed 3px #F3D9B3;
+    background-color: #FFFEEE;
+    z-index: 100;
+    top: 2.3rem;
+}
+.faq__search__description__explain *{
+    font-size: 1.3rem !important;
+    font-family: monospace;
+    line-height: 1.3rem !important;
+    color: #333 !important;
+}
+.faq__search__description p{
+    color: #666666;
+    font-size: 1.204rem;
+    line-height: 1.806rem;
+}
+.faq__search__description-image{
+    width: 2rem;
+    margin-left: .5rem;
+}
+.faq__search__inner{
+    margin: 1.5rem 2rem;
+}
+.faq__search__input-input{
+    width: 70%;
+    display: flex;
+}
+.faq__search__input-input input{
+    flex: 1;
+    text-shadow: 0 1px 0 #fff;
+    border: 1px solid #ccc;
+    letter-spacing: 1.8px;
+}
+.faq__search__input{
+    display: flex;
+    margin-top: -.8rem;
+}
+.faq__search__input-submit a{
+    justify-content: center;
+    display: flex;
+    background: url(https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/btnsearch.gif) no-repeat 0 0;
+    border: 1px solid #ccc;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 4px 0;
+    width: 7.2rem;
+    text-decoration: unset;
+}
+.faq__search__input-input input:focus-visible{
+    outline: none !important;
+}
+@media screen and (max-width:767px) {
+    .faq__search-title{
+        border: none;
+        border-radius: .8rem;
+        padding: .3rem 1.5rem;
+        background: -webkit-gradient(linear, left top, left bottom, from(#3981B1), to(#08609B));
+    }
+    .faq__newfaq .faq__search-title{
+        border-radius: .8rem .8rem 0 0;
+    }
+    .faq__search-title p{
+        border: none;
+        width: 100%;
+        color: #fff;
+        font-size: 1.4rem;
+        padding-left: 0;
+        letter-spacing: normal;
+    }
+    .faq__search__input{
+        flex-direction: column;
+    }
+    .faq__search__inner{
+        margin: 0;
+    }
+    .faq__search{
+        margin-bottom: 2rem !important;
+    }
+    .faq__search__input-input{
+        margin:  1.7rem 0 .7rem;
+        width: 100% ;
+    }
+    .faq__search__input-input input{
+        padding: 1rem 0;
+        border-radius: 1.1rem;
+    }
+ 
+    .faq__search__input-submit a{
+        font-size: 1.4rem;
+        font-weight: 700;
+        line-height: 2.24rem;
+        width: 100%;
+        background-image: unset;
+        background: -webkit-linear-gradient(top, rgba(37,141,200,1) 0%,rgba(37,141,200,1) 100%);
+        border-radius: 1.5rem;
+        padding: .9rem 0;
+        
+    }
+    .faq__search__input-submit{
+        overflow: hidden;
+    }
+    .faq__search__input-input{
+        background: url(https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/icons-36-white-search.png) no-repeat left center ;
+    }
+    .faq__search__input{
+        position: relative;
+    }
+    .faq__search__input-icon{
+        position: absolute;
+        background: rgba(0, 0, 0, .4);
+        border-radius: 50%;
+        width: 1.8rem;
+        height: 1.8rem;
+        opacity: .6;
+        top: 2.7rem;
+        left: .6rem;
+    }
+    .faq__search__input-input input{
+        padding-left: 3rem;
+        padding-right: 3rem;
+        border:1px solid #B3B3B3;
+        box-shadow: inset 0 1px 4px rgba(0, 0, 0, .2);
+    }
+    .faq__search__input-close{
+        background: rgba(0, 0, 0, .4);
+        border-radius: 50%;
+        width: 1.8rem;
+        margin: .2rem;
+        height: 1.8rem;
+    }
+    .faq__search__input__wrap-close{
+        display: none !important;
+        position: absolute;
+        top: 2.5rem;
+        right: 0.7rem;
+        border:1px solid rgba(0, 0, 0, .2);
+        border-radius: 50%;
+
+    }
+    .faq__search__input__wrap-close.active{
+        display: block !important;
+        
+    }
+}
+.input_search_wrap{
+    position: relative;
+    flex: 1;
+    display: flex;
+}
+.input_search_wrap input{
+    width: 100%;
+}
+.input_search_suggest{
+    position: absolute;
+    top: 105%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+}
+.input_search_suggest.active{
+    pointer-events: all;
+    opacity: 1;
+}
+.keyword-span{
+    width: 100%;
+    transition: all 0.3s;
+}
+.keyword-span:hover{
+    background: #f3f3f3;
+}
+</style>

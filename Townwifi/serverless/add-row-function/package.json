@@ -1,0 +1,7 @@
+{
+  "name": "add-row-function",
+  "version": "1.0.0",
+  "description": "Serverless function to add rows to HubDB",
+  "main": "index.js",
+  "dependencies": {}
+}

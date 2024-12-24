@@ -1,0 +1,13 @@
+[ {
+  "id" : "e9393a3c-633d-923d-5de5-8159e4ee9e94",
+  "name" : "text_title",
+  "display_width" : null,
+  "label" : "Text Title",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "『 受取・返却 』 内のFAQ"
+} ]

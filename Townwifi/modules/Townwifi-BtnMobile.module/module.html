@@ -1,0 +1,32 @@
+<!-- module html  -->
+<div class="btn__mobile mobile">
+    <a href="{{module.link_line.url.href}}" class="btn__mobile-left">
+        <img src="{{module.image_line.src}}" alt="">
+    </a>
+    <a href="{{module.link_order.url.href}}" class="btn__mobile-right">
+        <img src="{{module.image_order.src}}" alt="">
+    </a>
+    
+</div>
+<style>
+    .btn__mobile-left{
+    border: 1px solid #00b900;
+    padding: 1.4rem .87rem .8rem 1.74rem;
+    width: 50%;
+    background-color: #fff;
+}
+.btn__mobile-right{
+    background-color: #f36;
+    padding: 1.4rem .87rem .8rem 1.3rem;
+    width: 50%;
+}
+@media screen and (max-width:767px){
+    .btn__mobile.mobile{
+        display: flex !important;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+    }
+    
+}
+</style>

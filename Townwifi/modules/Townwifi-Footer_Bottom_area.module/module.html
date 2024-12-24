@@ -1,0 +1,353 @@
+<!-- module html  -->
+<section class="footer__bottom">
+    <div class="footer__bottom__inner __container">
+        <div class="footer__bottom__menu pc">
+            <div class="footer__bottom__policy">
+                {% for po in module.menu_bottom.policy %}
+                {% if po.link_field.open_in_new_tab %}
+                <a target="_blank" href="{{po.link_field.url.href}}">{{po.text_bottom_menu}}</a>
+                {% else %}
+                <a href="{{po.link_field.url.href}}">{{po.text_bottom_menu}}</a>
+                {% endif %}
+                    {% endfor %}
+            </div>
+            <div class="footer__bottom__pattent">
+                {% for po in module.menu_bottom.pattern %}
+                        <a target=" _blank" href="{{po.link_field.url.href}}">{{po.text_bottom_menu}}</a>
+                    {% endfor %}
+            </div>
+        </div>
+        <div class="footer__bottom__menu mobile">
+            {% for row in module.menu_bottom.menu_mobile %}
+            <div class="footer__bottom__policy">
+                {% for po in row.menu %}
+                {% if po.link_field.open_in_new_tab %}
+                <a target="_blank" href="{{po.link_field.url.href}}">{{po.text_bottom_menu}}</a>
+                {% else %}
+                <a href="{{po.link_field.url.href}}">{{po.text_bottom_menu}}</a>
+                {% endif %}
+                    {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="footer__bottom__contact" >
+            <div class="footer__bottom__contact-title">{{module.contact.text_title}}</div>
+            <div class="footer__bottom__contact__mediasocial">
+                {% for me in module.contact.media_social %}
+                        <a target="_blank" href="{{me.link_contact.url.href}}" class="anim-hover-opacity">
+                            <img src="{{me.image_contact.src}}" alt="">
+                        </a>
+                    {% endfor %}
+            </div>
+            <div class="footer__bottom__contact__textbottom">{{module.contact.text_bottom_contact}}</div>
+        </div>
+        <div class="footer__bottom__logo  pc">
+            <div class="footer__bottom__logo__inner">
+                <div class="footer__bottom__logo-image">
+                    <img src="{{module.logo_footer.image_logo_footer.src}}" alt="">
+                </div>
+                <div class="footer__bottom__logo-textaddress">{{module.logo_footer.text_address}}</div>
+                <div class="footer__bottom__logo-imagetosho">
+                    <img src="{{module.logo_footer.image_tosho.src}}" alt="">
+                </div>
+                <a target="_blank" href="{{module.logo_footer.link_information_1.url.href}}" class="anim-hover-opacity footer__bottom__logo-imageinfo1">
+                    <img src="{{module.logo_footer.image_information_1.src}}" alt="">
+                </a>
+                <a href="{{module.logo_footer.link_information_2.url.href}}" class="anim-hover-opacity footer__bottom__logo-imageinfo2">
+                    <img src="{{module.logo_footer.image_information_2.src}}" alt="">
+                </a>
+                <div class="footer__bottom__logo-textcontact">{{module.logo_footer.text_contact}}</div>
+            </div>
+            <div class="footer__bottom__logo__copyright">
+                <p>{{module.logo_footer.text_copyright}}</p>
+            </div>
+        </div>
+        <div class="footer__bottom__logo  mobile">
+            <div class="footer__bottom__logo__inner">
+                <div class="footer__bottom__logo__inner-row">
+                    <div class="footer__bottom__logo-imagetosho">
+                        <img src="{{module.logo_footer.image_tosho.src}}" alt="">
+                    </div>
+                    <div class="footer__bottom__logo-textmobile">{{module.logo_footer.text_mobile}}</div>
+                </div>
+                <div class="footer__bottom__logo__inner-row2">
+                    <a  href="{{module.logo_footer.link_information_1.url.href}}" class="anim-hover-opacity footer__bottom__logo-imageinfo1">
+                        <img src="{{module.logo_footer.image_information_1.src}}" alt="">
+                    </a>
+                    <a href="{{module.logo_footer.link_information_2.url.href}}" class="anim-hover-opacity footer__bottom__logo-imageinfo2">
+                        <img src="{{module.logo_footer.image_information_2.src}}" alt="">
+                    </a>
+                    <div class="footer__bottom__logo-textcontact">{{module.logo_footer.text_contact}}</div>
+                </div>
+            </div>
+            <div class="footer__bottom__logo__copyright">
+                <p>{{module.logo_footer.text_copyright}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer__bottom__logopksha">
+        <div class="footer__bottom__logopksha__inner __container">
+            <a href="{{module.logo_pksha.link_logo.url.href}}" class="pc">
+                <img src="{{module.logo_pksha.image_logo.src}}" alt="">
+            </a>
+            <div class="mobile">
+                <p>Powered by</p>
+                <div class="footer__bottom__logopksha__inner-image">
+                    <img  src="{{module.logo_pksha.image_logo_mobile.src}}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    .footer__bottom{
+    background-color: #ededed;
+    padding-top: 2rem;
+}
+.footer__bottom__inner{
+    padding-bottom: 0.5rem;
+}
+.footer__bottom__policy, .footer__bottom__pattent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.footer__bottom__policy a:last-child, .footer__bottom__pattent a:last-child{
+    border-right: none;
+}
+.footer__bottom__policy{
+    margin-bottom: 1rem;
+}
+.footer__bottom__policy a, .footer__bottom__pattent a{
+    border-right: 1px solid #333333;
+    font-size: 1.2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    text-decoration: none;
+    color: #051f49;
+}
+.footer__bottom__policy a:hover, .footer__bottom__pattent a:hover{
+    color: #025CD3;
+    text-decoration: underline;
+}
+.footer__bottom__contact{
+    margin: 2rem 0;
+    background: #f4f6f6;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer__bottom__contact__mediasocial{
+    display: flex;
+    justify-content: center;
+    padding: 3rem 2rem 2rem;
+}
+.footer__bottom__contact-title{
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1;
+}
+.footer__bottom__contact__textbottom{
+    font-size: 2rem;
+    font-weight: 700;
+    color: #30b6cf;
+    position: relative;
+}
+.footer__bottom__contact__textbottom::before{
+    position: absolute;
+    left: -3rem;
+    top: 0;
+    content: "";
+    width: 3px;
+    height: 120%;
+    background: #30b6cf;
+    border-radius: 3px;
+    transform: rotate(25deg);
+}
+.footer__bottom__contact__textbottom::after{
+    position: absolute;
+    right: -3rem;
+    top: 0;
+    content: "";
+    width: 3px;
+    height: 120%;
+    background: #30b6cf;
+    border-radius: 3px;
+    transform: rotate(-25deg);
+}
+.footer__bottom__contact__mediasocial a{
+    padding-left: 3rem;
+}
+.footer__bottom__contact__mediasocial a:first-child{
+    padding-left: 0;
+}
+.footer__bottom__logo__inner{
+    display: flex;
+    padding: 0 1rem;
+}
+.footer__bottom__logo-textaddress *{
+    font-size: 1.1rem;
+    line-height: 1.65rem;
+}
+.footer__bottom__logo-textaddress{
+    padding-left: 2.5rem;
+    width: 42.8rem;
+}
+.footer__bottom__logo-textcontact *{
+    font-size: 0.8rem;
+    line-height: 1.12rem;
+}
+.footer__bottom__logo-imagetosho{
+    width: 4.5rem;
+    margin: 0 0.5rem;
+}
+.footer__bottom__logo-textcontact{
+    margin-left: 1rem;
+}
+
+.footer__bottom__logo-imageinfo1{
+    width: 6rem;
+    margin: 0 0.5rem;
+}
+.footer__bottom__logo-imageinfo2{
+    width: 12rem;
+    margin: 0 0.5rem;
+}
+.footer__bottom__logo-image{
+    width: 12.2rem;
+}
+.footer__bottom__contact__mediasocial a{
+    width: 7rem;
+}
+.footer__bottom__logo__copyright p{
+font-size: 1.1rem;
+line-height: 1.96rem;
+color: #666666;
+
+}
+.footer__bottom__logo__copyright{
+    margin-top: 1.2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.footer__bottom__logopksha{
+    background: #f5f5f5;
+    padding: 1rem;
+}
+.footer__bottom__logopksha__inner{
+    display: flex;
+    justify-content: right;
+}
+.footer__bottom__logopksha__inner a{
+    width: 10.7rem;
+}
+@media screen and (max-width:767px) {
+    .footer__bottom__menu{
+        background-color: #fff;
+    }
+    .footer__bottom{
+        background-color: #fff;
+    }
+    .footer__bottom__policy a{
+        font-size: 1.2rem ;
+        font-weight: 700;
+        line-height: 1.36rem;
+        color: rgb(119, 119, 119);
+        border-right: 1px solid #777;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .footer__bottom__policy{
+        margin-bottom: 0.6rem;
+    }
+    .footer__bottom__contact-title{
+        font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1;
+    }
+    .footer__bottom__contact__mediasocial a{
+        width: 5.5rem;
+        padding-left: 2.5rem;
+    }
+    .footer__bottom__contact__textbottom{
+        font-size: 1.6rem;
+        font-weight: 700;
+        line-height: 2.72rem;
+    }
+    .footer__bottom__contact__textbottom::after{
+        right: -1.5rem;
+        height: 100% !important;
+        color: #777;
+    }
+     .footer__bottom__contact__textbottom::before{
+        left: -1.5rem;
+        color: #777;
+        height: 100% !important;
+    }
+    .footer__bottom__logo__inner-row2, .footer__bottom__logo__inner-row{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer__bottom__logo__inner-row{
+        padding: 0 0 .8rem;
+    }
+    .footer__bottom__logo-textmobile{
+        color: #000;
+    text-align: left;
+    padding: .5rem .8rem;
+    font-size: 1.2rem;
+    display: inline-block;
+    }
+    .footer__bottom__logo__inner{
+        flex-direction: column;
+    }
+    .footer__bottom__logopksha p{
+        font-size: 1.1rem;
+        text-decoration: none;
+        color: #fff;
+        padding-right: .5rem;
+    }
+    .footer__bottom__logopksha{
+        background-color: #08609b;
+    }
+    .footer__bottom__logopksha__inner .mobile{
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer__bottom__logopksha__inner-image{
+        width: 10.7rem;
+        padding-right: 1rem;
+    }
+    .footer__bottom__logopksha{
+        padding: .5rem 0;
+    }
+    .footer__bottom__logo-imageinfo1{
+        width: 5rem;
+        margin-right: 2rem;
+    }
+    .footer__bottom__logo-imageinfo2{
+        width: 8rem;
+        margin-left: 0 !important;
+    }
+    .footer__bottom__logo-textcontact{
+        padding-left: .8rem;
+    }
+    .footer__bottom__logo__copyright{
+        margin-bottom: 1.5rem;
+    }
+    .footer__bottom__contact{
+        margin-top: 1rem !important;
+    }
+    .footer__bottom{
+        padding-top: 1rem;
+    }
+    .footer__bottom__contact__mediasocial{
+        padding-bottom: 1.5rem;
+    }
+}
+</style>

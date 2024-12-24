@@ -1,0 +1,58 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: "faq detail"
+  screenshotPath: ../images/template-previews/home.png
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+
+<div class="container__pan">
+  {% module "module_17325215907367" path="/Townwifi/modules/Townwifi-Pan", label="Townwifi-Pan" %}
+</div>
+<div class="content">
+  <div class="content__left">
+    {% global_partial path="./partials/sitebar-detail.html" %}
+  </div>
+  <div class="content__right">
+    {% module "module_17325092928833" path="/Townwifi/modules/Townwifi-Faq-Detail", label="Townwifi-Faq-Detail" %}
+    {% global_partial path="./partials/contact.html" %}
+  </div>
+</div>
+<style>
+  .content{
+    max-width: 96.5rem;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2.5rem;
+  }
+  .content__left{
+    width: 26rem;
+  }
+  .content__right{
+    width: 68rem;
+  }
+  .container__pan{
+    margin-top: 20.5rem !important;
+    margin: auto;
+    max-width: 98rem;
+    margin-bottom: -1.5rem;
+  }
+  @media screen and (max-width:767px) {
+    .content__right{
+    width: 92.3%;
+    margin: auto;;
+  }
+    .content__left{
+      display: none;
+    }
+    .container__pan{
+      margin-top: 3rem !important;
+      margin-bottom: -3rem !important;
+    }
+    }
+</style>
+
+{% endblock body %}
