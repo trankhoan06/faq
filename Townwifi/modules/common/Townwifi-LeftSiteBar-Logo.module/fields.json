@@ -1,0 +1,62 @@
+[ {
+  "id" : "c40640c0-82b1-3425-5fa0-8480f3e4ea19",
+  "name" : "image_logo",
+  "label" : "Image Logo",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "size_type" : "auto",
+    "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/(12)gwmv_10%25off_faq-pc.png",
+    "alt" : "(12)gwmv_10%off_faq-pc",
+    "loading" : "lazy",
+    "width" : 260,
+    "height" : 853,
+    "max_width" : 260,
+    "max_height" : 853
+  }
+}, {
+  "id" : "d627afd6-a39d-368e-9ed5-0a8ec5e5018a",
+  "name" : "image_logo_mobile",
+  "label" : "Image Logo Mobile",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "size_type" : "auto",
+    "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/(12)gwmv_10%25off_faq-sp.png",
+    "alt" : "(12)gwmv_10%off_faq-sp",
+    "loading" : "lazy",
+    "width" : 640,
+    "height" : 170,
+    "max_width" : 640,
+    "max_height" : 170
+  }
+}, {
+  "id" : "c7d6ac6f-6feb-4f5a-d1b4-148feeac5d02",
+  "name" : "link_logo",
+  "label" : "Link Logo",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+  "show_advanced_rel_options" : false,
+  "type" : "link",
+  "display_width" : null,
+  "default" : {
+    "url" : {
+      "content_id" : null,
+      "href" : "https://townwifi.com/regist/order/?pr_vmaf=EtMdtn11Ek",
+      "type" : "EXTERNAL"
+    },
+    "open_in_new_tab" : false,
+    "no_follow" : false
+  }
+} ]

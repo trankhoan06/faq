@@ -1,9 +1,15 @@
 [ {
-  "id" : "ad71ce26-3e9f-e5fe-beec-3bb3d87a403a",
-  "name" : "text_answer",
-  "display_width" : null,
-  "label" : "Text Answer",
+  "id" : "f24b9700-85ac-5648-d1ba-04de05045dd3",
+  "name" : "hubdbrow_name",
+  "label" : "Hubdbrow Name",
   "required" : false,
   "locked" : false,
-  "type" : "richtext"
+  "table_name_or_id" : "102743924",
+  "columns_to_fetch" : [ "name" ],
+  "display_columns" : [ "name" ],
+  "type" : "hubdbrow",
+  "display_width" : null,
+  "default" : {
+    "id" : null
+  }
 } ]

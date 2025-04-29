@@ -1,14 +1,12 @@
 [ {
   "id" : "37da9768-af57-fbb2-2834-0820d731cb77",
   "name" : "keyword",
-  "display_width" : null,
   "label" : "Keyword",
   "required" : false,
   "locked" : false,
   "children" : [ {
     "id" : "b8173b04-fb08-645c-7ee7-126a3e80b7e2",
     "name" : "text_title_keyword",
-    "display_width" : null,
     "label" : "Text Title Keyword",
     "required" : false,
     "locked" : false,
@@ -16,11 +14,11 @@
     "allow_new_line" : false,
     "show_emoji_picker" : false,
     "type" : "text",
+    "display_width" : null,
     "default" : "注目のキーワード"
   }, {
     "id" : "8837a7a0-23b8-0802-2bbc-fce853228f97",
     "name" : "text_keyword",
-    "display_width" : null,
     "label" : "Text Keyword",
     "required" : false,
     "locked" : false,
@@ -34,12 +32,14 @@
     "allow_new_line" : false,
     "show_emoji_picker" : false,
     "type" : "text",
+    "display_width" : null,
     "default" : "メール"
   } ],
   "tab" : "CONTENT",
   "expanded" : false,
   "group_occurrence_meta" : null,
   "type" : "group",
+  "display_width" : null,
   "default" : {
     "text_title_keyword" : "注目のキーワード",
     "text_keyword" : "メール"
@@ -47,25 +47,23 @@
 }, {
   "id" : "a6953bbc-5e54-c11b-2559-71bcbea73c82",
   "name" : "common_category",
-  "display_width" : null,
   "label" : "Common Category",
   "required" : false,
   "locked" : false,
   "children" : [ {
     "id" : "82ce570f-85ff-6743-857a-b4b93578f6a4",
     "name" : "text_title",
-    "display_width" : null,
     "label" : "Text Title",
     "required" : false,
     "locked" : false,
     "validation_regex" : "",
     "allow_new_line" : false,
     "show_emoji_picker" : false,
-    "type" : "text"
+    "type" : "text",
+    "display_width" : null
   }, {
     "id" : "53cbbe18-c205-913d-6a47-af5eb3f83663",
     "name" : "image",
-    "display_width" : null,
     "label" : "Image",
     "required" : false,
     "locked" : false,
@@ -78,7 +76,6 @@
     "children" : [ {
       "id" : "598f3756-1efd-57a6-0407-9020761d0673",
       "name" : "image_category",
-      "display_width" : null,
       "label" : "Image Category",
       "required" : false,
       "locked" : false,
@@ -86,6 +83,7 @@
       "resizable" : true,
       "show_loading" : false,
       "type" : "image",
+      "display_width" : null,
       "default" : {
         "size_type" : "auto",
         "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/category_icon02_hover.png",
@@ -99,7 +97,6 @@
     }, {
       "id" : "b8f67152-2924-70a7-7709-f05e1a382ac7",
       "name" : "image_hover_category",
-      "display_width" : null,
       "label" : "Image Hover Category",
       "required" : false,
       "locked" : false,
@@ -107,6 +104,7 @@
       "resizable" : true,
       "show_loading" : false,
       "type" : "image",
+      "display_width" : null,
       "default" : {
         "size_type" : "auto",
         "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/category_icon02.png",
@@ -120,13 +118,13 @@
     }, {
       "id" : "bb3bd81c-9253-e140-0734-fdbe188d2317",
       "name" : "link_category",
-      "display_width" : null,
       "label" : "Link Category",
       "required" : false,
       "locked" : false,
       "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
       "show_advanced_rel_options" : false,
       "type" : "link",
+      "display_width" : null,
       "default" : {
         "url" : {
           "content_id" : null,
@@ -141,12 +139,14 @@
     "expanded" : false,
     "group_occurrence_meta" : null,
     "type" : "group",
+    "display_width" : null,
     "default" : [ ]
   } ],
   "tab" : "CONTENT",
   "expanded" : false,
   "group_occurrence_meta" : null,
   "type" : "group",
+  "display_width" : null,
   "default" : {
     "image" : [ ]
   }

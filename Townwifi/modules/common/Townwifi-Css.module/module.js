@@ -1,0 +1,1 @@
+$('[data-init-df]').removeAttr('data-init-df');

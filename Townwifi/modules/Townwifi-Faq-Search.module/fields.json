@@ -1,14 +1,12 @@
 [ {
   "id" : "e53c45bc-69db-7acc-4643-29f1df4fa3e8",
   "name" : "search",
-  "display_width" : null,
   "label" : "Search",
   "required" : false,
   "locked" : false,
   "children" : [ {
     "id" : "f9b2c2b9-2d5c-9468-f479-90e4a81d0d0c",
     "name" : "text_title",
-    "display_width" : null,
     "label" : "Text Title",
     "required" : false,
     "locked" : false,
@@ -16,11 +14,11 @@
     "allow_new_line" : false,
     "show_emoji_picker" : false,
     "type" : "text",
+    "display_width" : null,
     "default" : "キーワード検索"
   }, {
     "id" : "19f6ebd6-4809-7a86-3605-ed4837d863ba",
     "name" : "text_description",
-    "display_width" : null,
     "label" : "Text Description",
     "required" : false,
     "locked" : false,
@@ -28,20 +26,20 @@
     "allow_new_line" : false,
     "show_emoji_picker" : false,
     "type" : "text",
+    "display_width" : null,
     "default" : "キーワードまたは文章で検索できます(200文字以内) "
   }, {
     "id" : "ab996d2a-94fa-6968-dbf3-0259d3ed4781",
     "name" : "text_explain",
-    "display_width" : null,
     "label" : "Text Explain",
     "required" : false,
     "locked" : false,
     "type" : "richtext",
+    "display_width" : null,
     "default" : "<p><span>キーワードの間に半角スペースを入れるとAND検索になります。 </span></p>\n<p><span>キーワードの間に\"｜\"を入れるとOR検索になります。 </span></p>\n<p><span>キーワードの間に\" -\"を入れるとハイフンの後ろのキーワードを除外して検索します。</span></p>"
   }, {
     "id" : "0119e966-8af2-235d-e378-93a0452f373a",
     "name" : "text_search",
-    "display_width" : null,
     "label" : "Text Search",
     "required" : false,
     "locked" : false,
@@ -49,12 +47,14 @@
     "allow_new_line" : false,
     "show_emoji_picker" : false,
     "type" : "text",
+    "display_width" : null,
     "default" : "検索する"
   } ],
   "tab" : "CONTENT",
   "expanded" : false,
   "group_occurrence_meta" : null,
   "type" : "group",
+  "display_width" : null,
   "default" : {
     "text_title" : "キーワード検索",
     "text_description" : "キーワードまたは文章で検索できます(200文字以内) ",

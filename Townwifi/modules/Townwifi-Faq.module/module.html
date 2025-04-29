@@ -1,25 +1,21 @@
 <!-- module html  -->
-{% set posts = hubdb_table_rows('102743924', '&popular__eq=true') %}
     {% set postsAll = hubdb_table_rows('102743924') %}
      <!-- id là    {{postsAll[0].id}} -->
-{% set sorted_popular_posts = posts | sort(attribute='published_date', reverse=true) %}
     {% set sorted_popular_posts_all = postsAll | sort(attribute='published_date', reverse=true) %}
-{% set popular_posts = [] %}
 {% set latest_posts = [] %}
-{% set counter = 0 %}
     {% set counterAll = 0 %}
-{% for post in sorted_popular_posts %}
-{% if counter < 5 %}
-    {% do popular_posts.append(post) %}
-    {% set counter = counter + 1 %}
-{% endif %}
-{% endfor %}
 {% for post in sorted_popular_posts_all %}
     {% if counterAll < 5 %}
         {% do latest_posts.append(post) %}
         {% set counterAll = counterAll + 1 %}
     {% endif %}
     {% endfor %}
+
+{% set name_link = [] %}
+{% set all_post = hubdb_table_rows('102743924' ) %}
+{% set all_post = all_post|selectattr("is_unpublish", "equalto", 0)|list %}
+{% set all_post = all_post | sort( True, False, "access") %}
+{% set all_post = all_post[:5] %}
 <section class="faq">
     <div class="faq__popular__keyword pc">
         <div class="faq__search-title">
@@ -54,7 +50,7 @@
     <div class="faq__newfaq__wrap">
         {% for ques in latest_posts %}
         <div class="faq__newfaq__wrap-category">
-            <a href='/faq/show?name={{ques[1]}}'>{{ques[1]}}</a>
+            <a href='/faq/show?no={{ques.no}}'>{{ques[1]}}</a>
         <div class="faq__newfaq__wrap__image mobile">
             <div class="faq__newfaq__wrap-image">
                 <img src="https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/icons-36-white-right.png" alt="">
@@ -69,9 +65,9 @@
        <p>閲覧の多いFAQ</p>
    </div>
    <div class="faq__newfaq__wrap">
-       {% for ques in popular_posts %}
+       {% for ques in all_post %}
        <div class="faq__newfaq__wrap-category">
-           <a href='/faq/show?name={{ques[1]}}'>{{ques[1]}}</a>
+           <a href='/faq/show?no={{ques.no}}'>{{ques[1]}}</a>
        <div class="faq__newfaq__wrap__image mobile">
            <div class="faq__newfaq__wrap-image">
                <img src="https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/icons-36-white-right.png" alt="">

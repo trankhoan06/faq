@@ -43,12 +43,17 @@ if(keyword){
 }
 $('.faq__search__input-submit a').on('click',function(e){
     e.preventDefault();
-    let keyword = $('.faq__search__input-input input').val().trim();
-    if(category){
-        window.location.href = '/category/show?keyword=' + keyword + '&name=' + category;
+    if($('.faq__search__input-input input').val() !== ''){
+        let keyword = $('.faq__search__input-input input').val().trim();
+        if(category){
+            window.location.href = '/category/show?keyword=' + keyword + '&name=' + category;
+        }
+        else{
+            window.location.href = '/category/show?keyword=' + keyword;
+        }
     }
     else{
-        window.location.href = '/category/show?keyword=' + keyword;
+        alert('Please enter a keyword');
     }
 })
 const input = $('.faq__search__input-input input');
@@ -67,15 +72,14 @@ const close = $('.faq__search__input__wrap-close'); // Tìm thẻ cha bọc ô i
             input.val('');
             close.removeClass('active')
         })
-  var keywords = [
+  var keywordsOrigin = [
     {% for row in hubdb_table_rows('102743924') %}
       {% if row.keyword %}
         "{{ row.keyword }}"{% if not forloop.last %}, {% endif %}
       {% endif %}
     {% endfor %}
   ];
-  keywords = keywords.map(keyword => keyword.toLowerCase());
-
+ let  keywords = [...new Set(keywordsOrigin.flatMap(k => k.split(',').map(w => w.trim().toLowerCase())))];
 
 
   let typingTimer; // Timer for debounce

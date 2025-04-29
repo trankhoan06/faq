@@ -1,0 +1,323 @@
+<!-- module html  -->
+{% set no = request.query_dict.no %}
+{%set posts=hubdb_table_rows('102743924','&no='~no)%}
+{% set post= posts[0] %}
+    {% set access_value = post[10] if post[10] else 0 %}
+    <p>{{}}</p>
+<div class="faq__contact">
+    <div class="faq__contact-title active">{{module.text_title}}</div>
+    <div class="faq__contact-title comment">{{module.text_title_active}}</div>
+    <div class="faq__contact__vote">
+        <div class="faq__contact__vote__appreciate " data-comment-val= 'helpful'>
+            <img class="image1 anim-hover-opacity1 pc" src="{{module.vote.image_vote_good.src}}" alt="">
+            <img class="image1 anim-hover-opacity1 mobile" src="{{module.vote.image_vote_good_mobile.src}}" alt="">
+            <img class="image2 pc faq__appreciate" src="{{module.vote.image_vote_good_background.src}}" alt="">
+            <img class="image2 mobile faq__appreciate" src="{{module.vote.image_vote_good_background.mobile.src}}" alt="">
+        </div>
+        <div class="faq__contact__vote__appreciate " data-comment-val= 'helpful_but_confusing'>
+            <img class="image1 anim-hover-opacity1 pc" src="{{module.vote.image_vote_leverage.src}}" alt="">
+            <img class="image1 anim-hover-opacity1 mobile" src="{{module.vote.image_vote_leverage_mobile.src}}" alt="">
+            <img class="image2 pc faq__appreciate" src="{{module.vote.image_vote_leverage_background.src}}" alt="">
+            <img class="image2 mobile faq__appreciate" src="{{module.vote.image_vote_leverage_background.mobile.src}}" alt="">
+        </div>
+        <div class="faq__contact__vote__appreciate " data-comment-val= 'useless'>
+            <img class="image1 anim-hover-opacity1 pc" src="{{module.vote.image_vote_bad.src}}" alt="">
+            <img class="image1 anim-hover-opacity1 mobile" src="{{module.vote.image_vote_bad_mobile.src}}" alt="">
+            <img class="image2 pc faq__appreciate" src="{{module.vote.image_vote_bad_background.src}}" alt="">
+            <img class="image2 mobile faq__appreciate" src="{{module.vote.image_vote_bad_background.mobile.src}}" alt="">
+        </div> 
+    </div>
+    <div class="faq__model__appreciate">
+        <div class="faq__model__appreciate-title">ご意見・ご感想をお寄せください</div>
+        <textarea class="faq__model__appreciate-input" name="" id="" cols="70" rows="2"></textarea>
+        <div class="faq__model__appreciate-title">いただいたご意見はサービス改善の参考とさせていただきます。</div>
+        <div class="faq__model__appreciate-submit">
+            <input type="submit" value="送信する"  name="commit">
+        </div>
+    </div>
+    <div class="faq__contact__order">
+        <a href="{{module.order.link_order.url.href}}">
+            <img src="{{module.order.image_order.src}}" alt="">
+        </a>
+    </div>
+    <div class="faq__contact__contact">
+        <div class="faq__contact__contact-title pc">{{module.contact.text_title}}</div>
+        <div class="faq__contact__contact-title mobile">{{module.contact.text_title_mobile}}</div>
+        <div class="faq__contact__contact__info">
+            {% for con in module.contact.infomation_contact %}
+            <div class="faq__contact__contact__info__wrap">
+                <div class="faq__contact__contact__info-image">
+                    <img src="{{con.image_contact.src}}" alt="">
+                </div>
+                <a href="{{con.link_contact}}" class="faq__contact__contact__info-detail __link">
+                    {{con.text_contact}}
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="faq__contact__contact-bottom">{{module.contact.text_bottom_contact}}</div>
+        <div class="faq__top pc">
+            <a href="#top">TOPへ</a>
+        </div>
+    </div>
+</div>
+<style>
+    .faq__contact-title{
+        background: url({{module.image_avatar.src}}) no-repeat bottom center;
+        background-size: 5rem;
+    }
+</style>
+<script>
+let access = {{ access_value }} + 1;
+function postDataToApi(postData) {
+    $.ajax({
+        url: 'https://faq.townwifi.com/_hcms/api/comment', // Thay bằng URL Serverless Function của bạn
+        type: 'POST',
+        contentType: 'application/json', // Định dạng nội dung gửi
+        data: JSON.stringify(postData), // Dữ liệu POST
+        success: function(response) {
+        },
+        error: function(error) {
+        }
+    });
+}
+function updateDataToApi(postData) {
+    $.ajax({
+        url: 'https://faq.townwifi.com/_hcms/api/faqs/update', // Thay bằng URL Serverless Function của bạn
+        type: 'PATCH',
+        contentType: 'application/json', // Định dạng nội dung gửi
+        data: JSON.stringify(postData), // Dữ liệu POST
+        success: function(response) {
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+}
+let updateData = {
+        "rowId":{{post.hs_id}},
+        rowData: {
+            values: {
+            access: access,
+            }
+        }
+    }
+    updateDataToApi(updateData);
+let title = $('.faq__detail__question').text();
+let vote = '';
+$('.faq__contact__vote__appreciate').on('click', function () {
+    $(this).addClass('disabled'); // Ngăn chặn nhấn nhiều lần
+     vote = $(this).attr('data-comment-val'); // Lấy giá trị vote
+    $('.faq__model__appreciate').fadeIn(300);
+    
+});
+function getCurrentJSTDateTime() {
+    let now = new Date();
+    let jstOffset = 9 * 60; // 9 giờ * 60 phút
+    let jstTime = new Date(now.getTime() + jstOffset * 60000);
+    let year = jstTime.getFullYear();
+    let month = String(jstTime.getMonth() + 1).padStart(2, "0");
+    let day = String(jstTime.getDate()).padStart(2, "0");
+    let hours = String(jstTime.getHours()).padStart(2, "0");
+    let minutes = String(jstTime.getMinutes()).padStart(2, "0");
+    let seconds = String(jstTime.getSeconds()).padStart(2, "0");
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+}
+    $('.faq__model__appreciate-submit input').on('click',function(e){
+        e.preventDefault();
+        let created_at = new Date(getCurrentJSTDateTime()).getTime();
+        let comment = $('.faq__model__appreciate-input').val();
+        let postData = {
+        rowData: {
+            values: {
+                title_faq: title, 
+                [vote]:  1,
+                comment: comment,
+                created_at: created_at
+            }
+        }
+    };
+    $(this).addClass('disabled');
+    postDataToApi(postData);
+    $('.faq__model__appreciate').fadeOut(300);
+    })
+    const title1=$(".faq__contact-title.active")
+const title2=$(".faq__contact-title.comment")
+$('.image1').on('click', function() {
+    $('.image2').removeClass('faq__appreciate');
+    $('.image1').addClass('faq__appreciate');
+    $('.faq__model__appreciate').addClass('active');
+    title1.removeClass("active")
+    title2.addClass("active")
+});
+
+</script>
+<style>
+    .faq__contact__contact-bottom .contact__home{
+    text-decoration: none;
+}
+.faq__contact__contact-bottom .contact__home:hover{
+    text-decoration: underline;
+}
+    .faq__contact__vote{
+    display: flex;
+    margin: 0 7.7rem;
+    margin-top: 1rem;
+}
+.faq__contact-title{
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 0.1em;
+    padding: 1rem 1rem 8rem;
+    display: none;
+}
+.faq__contact-title.active{
+    display: block;
+}
+.faq__contact__order{
+    margin-top: 3rem;
+    width: 21.2rem;
+}
+.faq__contact__vote__appreciate{
+    margin: 0 1rem;
+    cursor: pointer;
+}
+.faq__contact__vote__appreciate.disabled{
+    pointer-events: none;
+}
+.faq__model__appreciate-submit input.disabled{
+    pointer-events: none;
+    cursor: not-allowed;
+}
+.faq__contact__contact-title{
+    background-color: #021D82;
+    color: #fff;
+    font-weight: 700;
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+.faq__contact__contact__info__wrap{
+    display: flex;
+}
+.faq__contact__contact__info-detail{
+    align-self: center;
+    font-size: 1.6rem;
+}
+.faq__contact__contact__info-image{
+    width: 3.9rem;
+    margin-right: .4rem;
+}
+.faq__contact__contact-bottom *{
+    font-size: 1.6rem;
+    color: #333333;
+    display: inline-flex;
+}
+.faq__contact__contact-bottom a{
+    color: #333333;
+}
+.faq__contact__contact-bottom a:hover{
+    color: #025CD3;
+}
+.faq__top{
+    display: flex;
+    justify-content: right;
+    margin: 1rem 0;
+}
+.faq__top a{
+    color: #051f49;
+    padding: 2px;
+    padding-left: 2rem;
+    text-decoration: none;
+    background: url(https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/arrow_top.png) no-repeat left center;
+}
+.faq__top a:hover{
+    text-decoration: underline;
+    color: #025CD3;
+}
+.faq__appreciate{
+    display: none;
+}
+.faq__model__appreciate{
+    display: none;
+    margin: auto;
+    width: 74.265%;
+    margin-top: 1.5rem;
+}
+.faq__model__appreciate.active{
+    display: block;
+}
+.faq__model__appreciate-title{
+    line-height: 1.3;
+    font-size: 1.2543rem;
+    color: #666;
+}
+.faq__model__appreciate-input{
+    width: 100%;
+    height: 5.1rem;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+}
+.faq__model__appreciate-submit{
+    margin: auto;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+.faq__model__appreciate-submit input{
+    background-color: #082b68;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.47rem;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    padding: .4rem 4.8rem;
+} 
+@media screen and (max-width:767px) {
+    .faq__contact-title{
+        font-size: 1.68rem;
+    }
+    .faq__contact__vote{
+        flex-direction: column;
+        margin: 0;
+    }
+    .faq__contact__vote__appreciate{
+        margin:0 0 1.5rem;
+    }
+    .faq__contact__contact-title{
+        font-size: 1.5rem;
+        line-height: 1.7rem;
+        margin-bottom: 3rem;
+        width: max-content;
+    }
+    .faq__contact__contact__info-detail{
+        color: #2489CE;
+    font-weight: bold;
+    text-decoration: underline;
+    }
+    .faq__contact-title{
+        background-size: 5.5rem !important;
+        margin-bottom: 1.5rem;
+    }
+    .faq__contact__order{
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+    .faq__contact__contact__info__wrap{
+        margin-bottom: 2rem;
+    }
+    .faq__contact__contact__info-image{
+        width: 2.3rem;
+    }
+    .faq__contact__contact-bottom *{
+        color: #333;
+    }
+    .faq__contact__contact-bottom a{
+        color: #2489CE;
+        font-weight: 700;
+    }
+}
+</style>

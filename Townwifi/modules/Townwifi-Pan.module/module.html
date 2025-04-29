@@ -1,7 +1,7 @@
 <!-- module html  -->
-{% set category_name = request.query_dict.name %}
+{% set no = request.query_dict.no %}
 {% set name_link = [] %}
-{% set all_post = hubdb_table_rows('102743924' , '&name='~category_name) %}
+{% set all_post = hubdb_table_rows('102743924' , '&no='~no) %}
 {% do name_link.append(all_post[0][6][0][1]) %}
 
 {% macro get_all_parent_categories(category) %}
@@ -10,7 +10,9 @@
 {{ get_all_parent_categories(category[0][5])}}
 {% endif %}
 {% endmacro %}
+{% if all_post[0][6][0][5] %}
 {{ get_all_parent_categories(all_post[0][6][0][5]) }}
+{% endif %}
 
 <section class="pan">
     <div class="pan__icon mobile">
@@ -18,10 +20,12 @@
     </div>
     <li class="pan__before"><a class="__link" href="/category/show">グローバルWiFi　よくある質問</a></li>
     {% for item in name_link|reverse %}
-    <!-- {{ item }} -->
+      <!-- <p>{{all_post[0][6][0][5]}}</p> -->
+      {% if item %}
         <li class="pan__before"><a class="__link" href="/category/show?name={{ item }}">{{item}}</a></li>
+        {% endif %}
 {% endfor %}
-<li>{{category_name}}</li>
+<li>{{all_post[0][1]}}</li>
 </section>
 <div class="pan__mobile mobile active">
     <div class="pan__mobile__icon">

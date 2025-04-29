@@ -1,0 +1,195 @@
+ <!-- module html  -->
+ <!-- {%set posts=hubdb_table_rows('102743924','&name='~module.hubdbrow_name.columns.name)%} -->
+ {% set no = request.query_dict.no %}
+ {%set posts=hubdb_table_rows('102743924','&no='~no)%}
+ {% set post= posts[0] %}
+ {% set post1= posts[0][6] %}
+    {% macro add_hours(datetime, hours) %}
+        {% set timestamp = datetime|unixtimestamp %}
+        {% set added_timestamp = timestamp + (hours * 3600000) %}
+        {{ added_timestamp|datetimeformat('%Y-%m-%d %H:%M:%S') }}
+    {% endmacro %}
+    <p>{{post[0]}}</p>
+<section class="faq__detail">
+    <div class="faq__detail__post__info">
+        <a href="/category/show?name={{post1[0][1]}}" class="faq__detail__post__info-back __link pc">戻る</a>
+        <div class="faq__detail__post__info-right">
+            <div class="faq__detail__post__info-date">No：{{ post[7] }}</div>
+        <div class="faq__detail__post__info-date pc ">公開日時：{{ add_hours(post.hs_created_at, 9) }}</div>
+        <div class="faq__detail__post__info-date"> 更新日時：{{ post.updated_at | datetimeformat('%Y-%m-%d')}}</div>
+        <a href="/print/faq?name={{no}}" target="_blank" class="faq__detail__post__info-print __link pc"> 印刷</a>
+        </div>
+
+    </div>
+    <div class="faq__detail__inner">
+        <div class="faq__detail__question">{{post[1]}}</div>
+        <div class="faq__detail__back mobile">
+            <span>カテゴリー：</span>
+            <a href="">付属品について</a>
+        </div>
+        <div class="faq__detail__staff pc">回答</div>
+        <div class="faq__detail__staff mobile"></div>
+        <div class="faq__detail__answer">{{post[4]}}</div>
+
+    </div>
+
+</section>
+<style>
+    .faq__detail__post__info{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+    border-bottom: 1px solid #ccc;
+
+}
+.faq__detail__post__info-date{
+margin-right: 1.5rem;
+color: #333;
+font-size: 1.204rem;
+}
+.faq__detail__post__info-print{
+    display: none !important;
+    font-size: 1.204rem;
+    color: #333; 
+    background: url("https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/ico_print%20(1).gif") left center no-repeat;
+    background-size: 1.6rem 1.6rem;
+    padding-left: 2rem;
+}
+.faq__detail__post__info-right{
+    margin-right: .5rem;
+    color: #333;
+    font-size: 1.204rem;
+    display: flex;
+}
+.faq__detail__post__info-back{
+    padding: 2px 3px 2px 1.8rem;
+    font-size: 1.204rem;
+    color: #333;
+}
+.faq__detail__question{
+    padding: .5rem 0 .3rem 4rem;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 1rem 2.5rem;
+    background: url(https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/ico_q.png) no-repeat left center;
+}
+.faq__detail__staff{
+    margin: 3rem 2.5rem 1rem;
+    padding: 1.2rem 0 .2rem 4rem;
+    color: #006db0;
+    font-weight: 700;
+    font-size: 1.61rem;
+
+    background: url(https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/ico_a.png) no-repeat left center;
+}
+.faq__detail__answer{
+    padding: 0 6.5rem 2rem;
+    margin-top: 2rem;
+    border-bottom: 1px solid #ccc;
+}
+.faq__detail__answer img{
+    max-width: 100% !important;
+}
+.faq__detail__answer em strong, .faq__detail__answer strong em{
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: .5rem double #333333;
+    border-radius: 1rem;
+    display: block;
+    font-style: normal;
+}
+.faq__detail__answer a{
+    display: inline;
+    color: #051f49 ;
+    text-decoration: none;
+}
+.faq__detail__answer a:hover{
+    color: #025CD3 !important;
+    text-decoration: underline;
+}
+.faq__detail{
+    margin-bottom: 4.4rem;
+}
+.faq__detail__answer table{
+    width: 100% !important;
+
+}
+.faq__detail__answer table td{
+    text-align: left !important;
+    border: 2px solid #000 !important;
+}
+.faq__detail__answer table th{
+    border: 2px solid #000 !important;
+    background-color: #ccc !important;
+
+}
+@media screen and (max-width:767px) {
+    .faq__detail{
+        padding: 1rem;
+        margin-bottom: 5rem;
+    }
+    .faq__detail__post__info-date{
+        margin-right: 2.5rem;
+    }
+    .faq__detail__post__info{
+        padding-bottom: 2.5rem;
+    }
+    .faq__detail__question{
+        font-size: 1.4rem;
+        font-weight: 700;
+        letter-spacing: 1.4px;
+        line-height: 2.24rem;
+        padding-bottom: 0;
+        margin-top: 0 !important;
+        padding-top: 1rem;
+        color: #10699c !important;
+    }
+    .faq__detail__question{
+        background: url(https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/ico_qst_s.png) no-repeat left center;
+        background-size: 2.7rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .faq__detail__staff{
+        background-size: 2.7rem;
+        background: url(https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/ico_ans_s.png) no-repeat left center;
+        background-size: 100% 100% !important;
+    }
+    .faq__detail__answer{
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
+    .faq__detail__back{
+        display: flex !important;
+        padding: .5rem 1rem;
+        margin: .5rem 0;
+        border: 1px dotted #666;
+    }
+    .faq__detail__staff{
+        height: 2.7rem;
+        width: 2.7rem;
+        margin: 0;
+        margin-top: 2.8rem;
+        padding: 0;
+    }
+    .faq__detail__back a{
+        color: #2489CE;
+        font-size: 1.4rem;
+        font-weight: 700;
+    }
+    .faq__detail__back span{
+        color: #333;
+        font-size: 1.4rem;
+    }
+}
+#jsonData{
+    display: none;
+}
+</style>
+<script>
+    $('.faq__detail__answer img').each((idx, item) => {
+        let width = $(item).attr('width');
+        $(item).css('width', width);
+    });
+</script>

@@ -1,7 +1,6 @@
 [ {
   "id" : "social_links",
   "name" : "social_links",
-  "display_width" : null,
   "label" : "Social links",
   "required" : false,
   "locked" : false,
@@ -14,7 +13,6 @@
   "children" : [ {
     "id" : "social_account",
     "name" : "social_account",
-    "display_width" : null,
     "label" : "Social account",
     "required" : true,
     "locked" : false,
@@ -24,11 +22,11 @@
     "reordering_enabled" : true,
     "preset" : null,
     "type" : "choice",
+    "display_width" : null,
     "default" : "facebook-f"
   }, {
     "id" : "social_links.custom_icon",
     "name" : "custom_icon",
-    "display_width" : null,
     "label" : "Custom icon",
     "required" : true,
     "locked" : false,
@@ -42,6 +40,7 @@
     },
     "icon_set" : "fontawesome-6.4.2",
     "type" : "icon",
+    "display_width" : null,
     "default" : {
       "name" : "arrow-alt-circle-up",
       "type" : "SOLID",
@@ -50,13 +49,13 @@
   }, {
     "id" : "social_links.social_link",
     "name" : "social_link",
-    "display_width" : null,
     "label" : "Social link",
     "required" : true,
     "locked" : false,
     "supported_types" : [ "EXTERNAL", "EMAIL_ADDRESS" ],
     "show_advanced_rel_options" : false,
     "type" : "link",
+    "display_width" : null,
     "default" : {
       "no_follow" : false,
       "open_in_new_tab" : true,
@@ -69,14 +68,12 @@
   }, {
     "id" : "social_links.accessibility",
     "name" : "accessibility",
-    "display_width" : null,
     "label" : "Accessibility options",
     "required" : false,
     "locked" : false,
     "children" : [ {
       "id" : "social_links.accessibility.title",
       "name" : "title",
-      "display_width" : null,
       "label" : "Title",
       "required" : true,
       "locked" : false,
@@ -84,17 +81,20 @@
       "allow_new_line" : false,
       "show_emoji_picker" : false,
       "type" : "text",
+      "display_width" : null,
       "default" : "Follow us on Facebook"
     } ],
     "tab" : "CONTENT",
     "expanded" : false,
     "group_occurrence_meta" : null,
-    "type" : "group"
+    "type" : "group",
+    "display_width" : null
   } ],
   "tab" : "CONTENT",
   "expanded" : false,
   "group_occurrence_meta" : null,
   "type" : "group",
+  "display_width" : null,
   "default" : [ {
     "social_account" : "facebook-f",
     "social_link" : {
@@ -155,21 +155,18 @@
 }, {
   "id" : "styles",
   "name" : "styles",
-  "display_width" : null,
   "label" : "Styles",
   "required" : false,
   "locked" : false,
   "children" : [ {
     "id" : "styles.fill",
     "name" : "fill",
-    "display_width" : null,
     "label" : "Fill",
     "required" : false,
     "locked" : false,
     "children" : [ {
       "id" : "styles.fill.color",
       "name" : "color",
-      "display_width" : null,
       "label" : "Color",
       "required" : false,
       "locked" : false,
@@ -185,6 +182,7 @@
         }
       },
       "type" : "color",
+      "display_width" : null,
       "default" : {
         "color" : null,
         "opacity" : null,
@@ -196,18 +194,17 @@
     "tab" : "STYLE",
     "expanded" : false,
     "group_occurrence_meta" : null,
-    "type" : "group"
+    "type" : "group",
+    "display_width" : null
   }, {
     "id" : "styles.size",
     "name" : "size",
-    "display_width" : null,
     "label" : "Size",
     "required" : false,
     "locked" : false,
     "children" : [ {
       "id" : "styles.size.size",
       "name" : "size",
-      "display_width" : null,
       "label" : "Size",
       "required" : false,
       "locked" : false,
@@ -216,27 +213,28 @@
       "max" : 50,
       "step" : 1,
       "suffix" : "px",
-      "type" : "number"
+      "type" : "number",
+      "display_width" : null
     } ],
     "tab" : "STYLE",
     "expanded" : false,
     "group_occurrence_meta" : null,
-    "type" : "group"
+    "type" : "group",
+    "display_width" : null
   }, {
     "id" : "styles.background",
     "name" : "background",
-    "display_width" : null,
     "label" : "Background",
     "required" : false,
     "locked" : false,
     "children" : [ {
       "id" : "styles.background.color",
       "name" : "color",
-      "display_width" : null,
       "label" : "Color",
       "required" : false,
       "locked" : false,
       "type" : "color",
+      "display_width" : null,
       "default" : {
         "color" : null,
         "opacity" : null,
@@ -248,18 +246,17 @@
     "tab" : "STYLE",
     "expanded" : false,
     "group_occurrence_meta" : null,
-    "type" : "group"
+    "type" : "group",
+    "display_width" : null
   }, {
     "id" : "styles.corner",
     "name" : "corner",
-    "display_width" : null,
     "label" : "Corner",
     "required" : false,
     "locked" : false,
     "children" : [ {
       "id" : "styles.corner.radius",
       "name" : "radius",
-      "display_width" : null,
       "label" : "Radius",
       "required" : false,
       "locked" : false,
@@ -267,23 +264,23 @@
       "max" : 100,
       "step" : 1,
       "suffix" : "px",
-      "type" : "number"
+      "type" : "number",
+      "display_width" : null
     } ],
     "tab" : "STYLE",
     "expanded" : false,
     "group_occurrence_meta" : null,
-    "type" : "group"
+    "type" : "group",
+    "display_width" : null
   }, {
     "id" : "styles.spacing",
     "name" : "spacing",
-    "display_width" : null,
     "label" : "Spacing",
     "required" : false,
     "locked" : false,
     "children" : [ {
       "id" : "styles.spacing.space_between_icons",
       "name" : "space_between_icons",
-      "display_width" : null,
       "label" : "Space between icons",
       "required" : false,
       "locked" : false,
@@ -292,46 +289,49 @@
       "max" : 50,
       "step" : 5,
       "suffix" : "px",
-      "type" : "number"
+      "type" : "number",
+      "display_width" : null
     }, {
       "id" : "styles.spacing.spacing",
       "name" : "spacing",
-      "display_width" : null,
       "label" : "Spacing",
       "required" : false,
       "locked" : false,
       "type" : "spacing",
+      "display_width" : null,
       "default" : { }
     } ],
     "tab" : "STYLE",
     "expanded" : false,
     "group_occurrence_meta" : null,
-    "type" : "group"
+    "type" : "group",
+    "display_width" : null
   }, {
     "id" : "styles.alignment",
     "name" : "alignment",
-    "display_width" : null,
     "label" : "Alignment",
     "required" : false,
     "locked" : false,
     "children" : [ {
       "id" : "styles.alignment.alignment",
       "name" : "alignment",
-      "display_width" : null,
       "label" : "Alignment",
       "required" : false,
       "locked" : false,
       "alignment_direction" : "HORIZONTAL",
       "type" : "alignment",
+      "display_width" : null,
       "default" : { }
     } ],
     "tab" : "STYLE",
     "expanded" : false,
     "group_occurrence_meta" : null,
-    "type" : "group"
+    "type" : "group",
+    "display_width" : null
   } ],
   "tab" : "STYLE",
   "expanded" : false,
   "group_occurrence_meta" : null,
-  "type" : "group"
+  "type" : "group",
+  "display_width" : null
 } ]

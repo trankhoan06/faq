@@ -1,0 +1,231 @@
+ {% set all_categories = hubdb_table_rows('103094635') %}
+ {% set category_name = request.query_dict.name %}
+{% set root_categories = all_categories|selectattr('parent_category', 'none')|list %}
+    {% macro render_category_tree(category, all_categories) %}
+    {% set cates = [] %} 
+        {% for item in all_categories %}
+            {% for parent in item.parent_category %}
+                {% if category.name == parent[1] %}
+                    {% do cates.append(item) %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        {% if cates|length > 0 %}
+            <div class="left__sitebar__parents-child-wrap">
+                {% for cate in cates %}
+                    <div class="left__sitebar__parents child">
+                        {% if category_name==cate.name %}
+                    <div class="left__sitebar__child active">
+                        {% else %}
+                        <div class="left__sitebar__child">
+                        {% endif %}
+                            <div class="left__sitebar__parents-image pc anim-hover-opacity">
+                                <img class="active" src="https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/close.png" alt="">
+                                <img class="no-active" src="https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/open.png" alt="">
+                            </div>
+                            <a href="/category/show?name={{ cate.name }}">{{ cate.name }}</a>
+                            <div class="faq__newfaq__wrap__image mobile">
+                                <div class="faq__newfaq__wrap-image">
+                                    <img src="https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/icons-36-white-right.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        {{ render_category_tree(cate, all_categories) }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endmacro %}
+    
+    <section class="left__sitebar">
+        <div class="left__sitebar__title">{{ module.text_title }}</div>
+        <div class="left__sitebar__container">
+            {% for category in root_categories %}
+                <div class="left__sitebar__parents category">
+                    {% if category_name==category.name %}
+                    <div class="left__sitebar__child active">
+                        {% else %}
+                        <div class="left__sitebar__child">
+                        {% endif %}
+                        <div class="left__sitebar__parents-image pc anim-hover-opacity">
+                            <img class="active" src="https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/close.png" alt="">
+                            <img class="no-active" src="https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/open.png" alt="">
+                        </div>
+                        <a href="/category/show?name={{ category.name }}">{{ category.name }}</a>
+                        <div class="faq__newfaq__wrap__image mobile">
+                            <div class="faq__newfaq__wrap-image">
+                                <img src="https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/icons-36-white-right.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    {{ render_category_tree(category, all_categories) }}
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    <style>
+        .left__sitebar{
+    border-radius: .5rem;
+    
+}
+.left__sitebar__title{
+    background: #082b68;
+    height: auto;
+    padding: 1rem 0 1rem 1rem;
+    color: #fff;
+    font-weight: normal;
+    font-size: 1.61rem;
+    line-height: 1.932rem;
+    border-radius: .5rem .5rem 0 0;
+}
+.left__sitebar__child a{
+    padding: .5rem 0;
+    text-decoration: none;
+    color: #051f49;
+    margin-right: .5rem;
+}
+.left__sitebar__child a:hover{
+    color: #025CD3;
+    text-decoration: underline;
+}
+.left__sitebar__child{
+    border-top: 1px solid #e6e6e6;
+    display: flex;
+}
+.left__sitebar__parents-image{
+    margin: 0 .5rem;
+    cursor: pointer;
+    width: 1.8rem;
+    display: flex;
+    align-items: center;
+}
+.left__sitebar__container{
+    border: 1px solid #e6e6e6;
+    border-top: none;
+    border-radius:0 0 .5rem 0 ;
+
+}
+.left__sitebar__parents.child{
+    margin-left: 2rem;
+}
+.faq__newfaq__wrap-image{
+    width: 1.8rem;
+    border-radius: 50%;
+    background-color: #888;
+    background: rgba(0, 0, 0, .4);
+    height: 1.8rem;
+    margin:1rem 1.1rem;
+}
+.faq__newfaq__wrap__image{
+    display: flex;
+    align-items: center;
+}
+.left__sitebar__parents-child-wrap{
+    display: none;
+}
+.left__sitebar__parents-image .active{
+    display: block !important;
+}
+.left__sitebar__parents-image.active .active{
+    display: none !important;
+}
+.left__sitebar__parents-image.active .no-active{
+    display: block !important;
+}
+.left__sitebar__parents-image img{
+    display: none !important;
+}
+.left__sitebar__child.active{
+    background-color: #e8f2fb;
+    overflow: hidden;
+}
+@media screen and (max-width:767px) {
+    .left__sitebar{
+        margin-bottom: 2.7rem;
+        border-radius: .8rem;
+        overflow: hidden;
+    }
+    .left__sitebar__title{
+        border: none;
+        padding: .7rem 1.5rem;
+        background: -webkit-gradient(linear, left top, left bottom, from(#3981B1), to(#08609B));
+        font-size: 1.4rem;
+        line-height: 2.24rem;
+        font-weight: 700;
+    }
+    .left__sitebar__child a{
+        font-size: 1.4rem;
+        line-height: 2.24rem;
+        font-weight: 700;
+        margin-left: 0 !important;
+        padding: 1rem 0rem 1rem 1.5rem !important ;
+    }
+    .left__sitebar__parents.child{
+        margin-left: 0;
+        border-radius: 0 !important;
+    }
+    .left__sitebar__child{
+        text-shadow: 0 1px 1px #fff;
+        margin-left: 0;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        border-bottom: 1px solid #ccc;
+        background-image: -webkit-linear-gradient(top, #fdfdfd, #eee) !important;
+        /* display: flex; */
+        border-left: 1px solid #eee;
+        border-right: 1px solid #eee;
+        text-shadow: 0 1px 1px #f6f6f6;
+
+    }
+    .left__sitebar__child .faq__newfaq__wrap__image{
+        border-left: 1px solid #ccc;
+    }
+    .left__sitebar__parents.category{
+        overflow: hidden;
+    }
+}
+.left__sitebar__child.no-has__child .left__sitebar__parents-image{
+    display: none !important;
+}
+.left__sitebar__child.no-has__child{
+    padding-left: 2.8rem;
+    position: relative;
+}
+.left__sitebar__child.no-has__child:after{
+    content: '';
+    width: 1.1rem;
+    height: .8rem;
+    left: 1rem;
+    top: 50%;
+    background-image: url('https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/ar.png');
+    position: absolute;
+    transform: translateY(-50%);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+    </style>
+    <script>
+let  params = new URLSearchParams(window.location.search);
+let name = params.get('name');
+$('.left__sitebar__child').each((idx, item) => {
+    if ($(item).find('a').text() == name) {
+        console.log(name);
+        $(item).find('.left__sitebar__parents-image').addClass('active')
+        $(item).next('.left__sitebar__parents-child-wrap').show();
+        $(item).parents('.left__sitebar__parents-child-wrap').show();
+        $(item).parents('.left__sitebar__parents-child-wrap').prev('.left__sitebar__child').find('.left__sitebar__parents-image').addClass('active');
+        console.log( $(item).parents('.left__sitebar__parents-child-wrap'))
+    }
+})
+$('.left__sitebar__parents-image').on('click', function(e){
+  e.preventDefault();
+    $(this).toggleClass('active');
+    $(this).closest('.left__sitebar__child').next('.left__sitebar__parents-child-wrap').slideToggle();
+});
+$('.left__sitebar__child').each((idx, item) => {
+  if ($(item).next('.left__sitebar__parents-child-wrap').length == 0) {
+    $(item).addClass('no-has__child');
+  }
+})
+    </script>

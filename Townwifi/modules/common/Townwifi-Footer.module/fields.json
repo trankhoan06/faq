@@ -1,0 +1,917 @@
+[ {
+  "id" : "b6489184-9777-2d6e-397e-0f512dda8476",
+  "name" : "like_and_share",
+  "label" : "Like And Share",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "83515de4-2a18-4b67-c593-82f9e883d99b",
+    "name" : "text_share_post",
+    "label" : "Text Share Post",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "このページを共有する"
+  }, {
+    "id" : "3803a296-3ab6-6dbd-85a9-465e748f77c9",
+    "name" : "text_like",
+    "label" : "Text Like",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "いいね！"
+  }, {
+    "id" : "59521843-a2f5-f647-f9f7-ddbe75d1c799",
+    "name" : "text_share",
+    "label" : "Text Share",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "シェアする"
+  }, {
+    "id" : "9f447906-df1a-786b-76ac-b0cc4d24da02",
+    "name" : "link_share",
+    "label" : "Link Share",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+    "show_advanced_rel_options" : false,
+    "type" : "link",
+    "display_width" : null,
+    "default" : {
+      "url" : {
+        "content_id" : null,
+        "href" : "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftownwifi.com%2F&display=popup&ref=plugin&src=like&kid_directed_site=0&app_id=1687831268170831",
+        "type" : "EXTERNAL"
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    }
+  }, {
+    "id" : "230182db-057e-d190-a032-a505eefa4788",
+    "name" : "text_twitter",
+    "label" : "Text Twitter",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "ポスト"
+  }, {
+    "id" : "4eb51fd7-89a9-9169-6213-945971b4fb56",
+    "name" : "link_twitter",
+    "label" : "Link Twitter",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+    "show_advanced_rel_options" : false,
+    "type" : "link",
+    "display_width" : null,
+    "default" : {
+      "url" : {
+        "content_id" : null,
+        "href" : "https://x.com/intent/post?original_referer=https%3A%2F%2Ffaq.townwifi.com%2F&text=%E6%B5%B7%E5%A4%96WiFi+%E3%83%AC%E3%83%B3%E3%82%BF%E3%83%AB%E3%81%AE%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E8%B3%AA%E5%95%8F+%7C+%E3%80%90%E5%85%AC%E5%BC%8F%E3%80%91%E6%B5%B7%E5%A4%96WiFi%E3%81%AA%E3%82%89%E3%82%B0%E3%83%AD%E3%83%BC%E3%83%90%E3%83%ABWiFi&url=https%3A%2F%2Ffaq.townwifi.com%2F%3Fsite_domain%3Dglobalwifi&via=GLOBAL_WiFi",
+        "type" : "EXTERNAL"
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    }
+  }, {
+    "id" : "09a2b909-88a2-190c-a9ca-39e34e398b2c",
+    "name" : "image_line",
+    "label" : "Image Line",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "size_type" : "auto",
+      "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/ico_line_mini.png",
+      "alt" : "ico_line_mini",
+      "loading" : "lazy",
+      "width" : 20,
+      "height" : 20,
+      "max_width" : 20,
+      "max_height" : 20
+    }
+  }, {
+    "id" : "677a41e2-37fd-bfeb-2201-11223ab96442",
+    "name" : "link_line",
+    "label" : "Link Line",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+    "show_advanced_rel_options" : false,
+    "type" : "link",
+    "display_width" : null,
+    "default" : {
+      "url" : {
+        "content_id" : null,
+        "href" : "https://page.line.me/204fleif?openQrModal=true",
+        "type" : "EXTERNAL"
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : {
+    "text_share_post" : "このページを共有する",
+    "text_like" : "いいね！",
+    "text_share" : "シェアする",
+    "link_share" : {
+      "url" : {
+        "content_id" : null,
+        "href" : "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftownwifi.com%2F&display=popup&ref=plugin&src=like&kid_directed_site=0&app_id=1687831268170831",
+        "type" : "EXTERNAL"
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    },
+    "text_twitter" : "ポスト",
+    "link_twitter" : {
+      "url" : {
+        "content_id" : null,
+        "href" : "https://x.com/intent/post?original_referer=https%3A%2F%2Ffaq.townwifi.com%2F&text=%E6%B5%B7%E5%A4%96WiFi+%E3%83%AC%E3%83%B3%E3%82%BF%E3%83%AB%E3%81%AE%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E8%B3%AA%E5%95%8F+%7C+%E3%80%90%E5%85%AC%E5%BC%8F%E3%80%91%E6%B5%B7%E5%A4%96WiFi%E3%81%AA%E3%82%89%E3%82%B0%E3%83%AD%E3%83%BC%E3%83%90%E3%83%ABWiFi&url=https%3A%2F%2Ffaq.townwifi.com%2F%3Fsite_domain%3Dglobalwifi&via=GLOBAL_WiFi",
+        "type" : "EXTERNAL"
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    },
+    "image_line" : {
+      "size_type" : "auto",
+      "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/ico_line_mini.png",
+      "alt" : "ico_line_mini",
+      "loading" : "lazy",
+      "width" : 20,
+      "height" : 20,
+      "max_width" : 20,
+      "max_height" : 20
+    },
+    "link_line" : {
+      "url" : {
+        "content_id" : null,
+        "href" : "https://page.line.me/204fleif?openQrModal=true",
+        "type" : "EXTERNAL"
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    }
+  }
+}, {
+  "id" : "7d84ff8f-bcd8-2df6-4bde-2dc63b74c70a",
+  "name" : "infomation_and_support",
+  "label" : "Infomation And Support",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "529c3e01-5e5b-5e55-c4f4-19a648e02ca8",
+    "name" : "image",
+    "label" : "Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "size_type" : "auto",
+      "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/already_title.png",
+      "alt" : "already_title",
+      "loading" : "lazy",
+      "width" : 265,
+      "height" : 63,
+      "max_width" : 265,
+      "max_height" : 63
+    }
+  }, {
+    "id" : "fae37146-c178-13f4-a1ca-4f99783afe2f",
+    "name" : "text_inspect",
+    "label" : "Text Inspect",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "マイページからお申込み状況の確認や領収書の発行依頼ができます。"
+  }, {
+    "id" : "1ea9b261-22cf-974d-a6b9-d33f7fb9932e",
+    "name" : "image_login",
+    "label" : "Image Login",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "size_type" : "auto",
+      "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/already_btn_login.png",
+      "alt" : "already_btn_login",
+      "loading" : "lazy",
+      "width" : 207,
+      "height" : 43,
+      "max_width" : 207,
+      "max_height" : 43
+    }
+  }, {
+    "id" : "b72eb595-8d30-55f2-6a90-102c0f6c6b8d",
+    "name" : "link_login",
+    "label" : "Link Login",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+    "show_advanced_rel_options" : false,
+    "type" : "link",
+    "display_width" : null,
+    "default" : {
+      "url" : {
+        "content_id" : null,
+        "href" : "/login/",
+        "type" : "EXTERNAL"
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    }
+  }, {
+    "id" : "efe7a47f-421a-d7cf-b613-2357a0e950d2",
+    "name" : "icon_arrow",
+    "label" : "Icon Arrow ",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "size_type" : "auto",
+      "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/link_icon_01.png",
+      "alt" : "link_icon_01",
+      "loading" : "lazy",
+      "width" : 13,
+      "height" : 13,
+      "max_width" : 13,
+      "max_height" : 13
+    }
+  }, {
+    "id" : "dcb8a8f1-2317-1973-ae10-904c1d72916a",
+    "name" : "airport",
+    "label" : "Airport",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "13f195d4-43d0-a066-0475-756ccace896a",
+      "name" : "text_airport",
+      "label" : "Text Airport",
+      "required" : false,
+      "locked" : false,
+      "validation_regex" : "",
+      "allow_new_line" : false,
+      "show_emoji_picker" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "空港カウンターのご案内"
+    }, {
+      "id" : "0eb4fda7-86c8-69c4-a956-93d8d0184d81",
+      "name" : "link_airport",
+      "label" : "Link Airport",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+      "show_advanced_rel_options" : false,
+      "type" : "link",
+      "display_width" : null,
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "/airport",
+          "type" : "EXTERNAL"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : {
+      "text_airport" : "空港カウンターのご案内",
+      "link_airport" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "/airport",
+          "type" : "EXTERNAL"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
+  }, {
+    "id" : "6c804519-c48a-a763-a092-4745e485c9ea",
+    "name" : "support",
+    "label" : "Support",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "dad59785-addd-177f-3790-8da706f60f22",
+      "name" : "text_support",
+      "label" : "Text Support",
+      "required" : false,
+      "locked" : false,
+      "validation_regex" : "",
+      "allow_new_line" : false,
+      "show_emoji_picker" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "お客さまサポート"
+    }, {
+      "id" : "207a2f59-b039-7ca6-24eb-a39b2bedc2d2",
+      "name" : "link_support",
+      "label" : "Link AirportSupport",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+      "show_advanced_rel_options" : false,
+      "type" : "link",
+      "display_width" : null,
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "/support",
+          "type" : "EXTERNAL"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : {
+      "text_support" : "お客さまサポート",
+      "link_support" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "/support",
+          "type" : "EXTERNAL"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : {
+    "image" : {
+      "size_type" : "auto",
+      "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/already_title.png",
+      "alt" : "already_title",
+      "loading" : "lazy",
+      "width" : 265,
+      "height" : 63,
+      "max_width" : 265,
+      "max_height" : 63
+    },
+    "text_inspect" : "マイページからお申込み状況の確認や領収書の発行依頼ができます。",
+    "image_login" : {
+      "size_type" : "auto",
+      "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/already_btn_login.png",
+      "alt" : "already_btn_login",
+      "loading" : "lazy",
+      "width" : 207,
+      "height" : 43,
+      "max_width" : 207,
+      "max_height" : 43
+    },
+    "link_login" : {
+      "url" : {
+        "content_id" : null,
+        "href" : "/login/",
+        "type" : "EXTERNAL"
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    },
+    "icon_arrow" : {
+      "size_type" : "auto",
+      "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/link_icon_01.png",
+      "alt" : "link_icon_01",
+      "loading" : "lazy",
+      "width" : 13,
+      "height" : 13,
+      "max_width" : 13,
+      "max_height" : 13
+    },
+    "airport" : {
+      "text_airport" : "空港カウンターのご案内",
+      "link_airport" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "/airport",
+          "type" : "EXTERNAL"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    },
+    "support" : {
+      "text_support" : "お客さまサポート",
+      "link_support" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "/support",
+          "type" : "EXTERNAL"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
+  }
+}, {
+  "id" : "fb59480e-210f-f191-e348-99e4b30c023d",
+  "name" : "main_footer",
+  "label" : "Main Footer",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "5851e4b6-e862-25cc-45bb-9d6c4b84ed2d",
+    "name" : "left",
+    "label" : "Left",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "8c504247-6c40-9f64-f881-199c5b37a848",
+      "name" : "suggest",
+      "label" : "Suggest",
+      "required" : false,
+      "locked" : false,
+      "occurrence" : {
+        "min" : null,
+        "max" : null,
+        "sorting_label_field" : null,
+        "default" : null
+      },
+      "children" : [ {
+        "id" : "cdc6ad3e-f412-8017-8f24-558904d288da",
+        "name" : "text_theme",
+        "label" : "Text Theme",
+        "required" : false,
+        "locked" : false,
+        "validation_regex" : "",
+        "allow_new_line" : false,
+        "show_emoji_picker" : false,
+        "type" : "text",
+        "display_width" : null,
+        "default" : "はじめてのグローバルWiFi"
+      }, {
+        "id" : "0ce4bce8-a28f-19f7-235b-f05e49f83174",
+        "name" : "category",
+        "label" : "Category",
+        "required" : false,
+        "locked" : false,
+        "occurrence" : {
+          "min" : null,
+          "max" : null,
+          "sorting_label_field" : null,
+          "default" : null
+        },
+        "children" : [ {
+          "id" : "d9c6d799-13a7-41f6-bdad-2b11afa5b82b",
+          "name" : "text_title",
+          "label" : "Text Title",
+          "required" : false,
+          "locked" : false,
+          "validation_regex" : "",
+          "allow_new_line" : false,
+          "show_emoji_picker" : false,
+          "type" : "text",
+          "display_width" : null,
+          "default" : "ご利用の流れ"
+        }, {
+          "id" : "0267bcea-a6a4-f5d9-d1e7-2f30007b5d2e",
+          "name" : "link_title",
+          "label" : "Link Title",
+          "required" : false,
+          "locked" : false,
+          "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+          "show_advanced_rel_options" : false,
+          "type" : "link",
+          "display_width" : null,
+          "default" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          }
+        } ],
+        "tab" : "CONTENT",
+        "expanded" : false,
+        "group_occurrence_meta" : null,
+        "type" : "group",
+        "display_width" : null,
+        "default" : [ ]
+      } ],
+      "tab" : "CONTENT",
+      "expanded" : false,
+      "group_occurrence_meta" : null,
+      "type" : "group",
+      "display_width" : null,
+      "default" : [ ]
+    }, {
+      "id" : "77154b6e-d769-e830-9266-2bde4de2cef9",
+      "name" : "text_airport",
+      "label" : "Text Airport",
+      "required" : false,
+      "locked" : false,
+      "validation_regex" : "",
+      "allow_new_line" : false,
+      "show_emoji_picker" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "空港/国内カウンター"
+    }, {
+      "id" : "a957018a-02fe-1ba6-c012-f404c601e822",
+      "name" : "area_left",
+      "label" : "Area Left",
+      "required" : false,
+      "locked" : false,
+      "occurrence" : {
+        "min" : null,
+        "max" : null,
+        "sorting_label_field" : null,
+        "default" : null
+      },
+      "children" : [ {
+        "id" : "1efa7e4a-fc96-bc3f-5e34-d5d15af8e220",
+        "name" : "text_theme",
+        "label" : "Text Theme",
+        "required" : false,
+        "locked" : false,
+        "validation_regex" : "",
+        "allow_new_line" : false,
+        "show_emoji_picker" : false,
+        "type" : "text",
+        "display_width" : null,
+        "default" : "はじめてのグローバルWiFi"
+      }, {
+        "id" : "cc9febc3-d8f0-4fb9-b5b7-e327f2c093bd",
+        "name" : "category",
+        "label" : "Category",
+        "required" : false,
+        "locked" : false,
+        "occurrence" : {
+          "min" : null,
+          "max" : null,
+          "sorting_label_field" : null,
+          "default" : null
+        },
+        "children" : [ {
+          "id" : "831f5a61-60a4-e437-83a9-0189dc3adcbc",
+          "name" : "text_title",
+          "label" : "Text Title",
+          "required" : false,
+          "locked" : false,
+          "validation_regex" : "",
+          "allow_new_line" : false,
+          "show_emoji_picker" : false,
+          "type" : "text",
+          "display_width" : null,
+          "default" : "ご利用の流れ"
+        }, {
+          "id" : "a6deb145-16c6-f6a4-ba50-0738507d5c27",
+          "name" : "link_title",
+          "label" : "Link Title",
+          "required" : false,
+          "locked" : false,
+          "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+          "show_advanced_rel_options" : false,
+          "type" : "link",
+          "display_width" : null,
+          "default" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          }
+        } ],
+        "tab" : "CONTENT",
+        "expanded" : false,
+        "group_occurrence_meta" : null,
+        "type" : "group",
+        "display_width" : null,
+        "default" : [ ]
+      } ],
+      "tab" : "CONTENT",
+      "expanded" : false,
+      "group_occurrence_meta" : null,
+      "type" : "group",
+      "display_width" : null,
+      "default" : [ ]
+    }, {
+      "id" : "36a2f2e9-02fc-37ea-fa0d-21c800ccc2bd",
+      "name" : "area_right",
+      "label" : "Area right",
+      "required" : false,
+      "locked" : false,
+      "occurrence" : {
+        "min" : null,
+        "max" : null,
+        "sorting_label_field" : null,
+        "default" : null
+      },
+      "children" : [ {
+        "id" : "1bc0fdd9-7d9c-db7b-5da6-641ec4c7b308",
+        "name" : "text_theme",
+        "label" : "Text Theme",
+        "required" : false,
+        "locked" : false,
+        "validation_regex" : "",
+        "allow_new_line" : false,
+        "show_emoji_picker" : false,
+        "type" : "text",
+        "display_width" : null,
+        "default" : "はじめてのグローバルWiFi"
+      }, {
+        "id" : "8b33f41c-6f5a-b610-e0b5-04e2b138c4b6",
+        "name" : "category",
+        "label" : "Category",
+        "required" : false,
+        "locked" : false,
+        "occurrence" : {
+          "min" : null,
+          "max" : null,
+          "sorting_label_field" : null,
+          "default" : null
+        },
+        "children" : [ {
+          "id" : "f70882b5-45bd-2317-4612-3dfe8bdf4049",
+          "name" : "text_title",
+          "label" : "Text Title",
+          "required" : false,
+          "locked" : false,
+          "validation_regex" : "",
+          "allow_new_line" : false,
+          "show_emoji_picker" : false,
+          "type" : "text",
+          "display_width" : null,
+          "default" : "ご利用の流れ"
+        }, {
+          "id" : "73130961-56a2-d3b7-7db4-8961146e2def",
+          "name" : "link_title",
+          "label" : "Link Title",
+          "required" : false,
+          "locked" : false,
+          "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+          "show_advanced_rel_options" : false,
+          "type" : "link",
+          "display_width" : null,
+          "default" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          }
+        } ],
+        "tab" : "CONTENT",
+        "expanded" : false,
+        "group_occurrence_meta" : null,
+        "type" : "group",
+        "display_width" : null,
+        "default" : [ ]
+      } ],
+      "tab" : "CONTENT",
+      "expanded" : false,
+      "group_occurrence_meta" : null,
+      "type" : "group",
+      "display_width" : null,
+      "default" : [ ]
+    }, {
+      "id" : "520d9d4a-29c1-f630-ca01-5e89112e537e",
+      "name" : "another",
+      "label" : "Another",
+      "required" : false,
+      "locked" : false,
+      "occurrence" : {
+        "min" : null,
+        "max" : null,
+        "sorting_label_field" : null,
+        "default" : null
+      },
+      "children" : [ {
+        "id" : "cdbffb4c-34f4-7c20-6c85-d82860d1fbf4",
+        "name" : "text_theme",
+        "label" : "Text Theme",
+        "required" : false,
+        "locked" : false,
+        "validation_regex" : "",
+        "allow_new_line" : false,
+        "show_emoji_picker" : false,
+        "type" : "text",
+        "display_width" : null,
+        "default" : "はじめてのグローバルWiFi"
+      }, {
+        "id" : "0b34e843-5d11-e5f8-84f1-d2456f6c7be7",
+        "name" : "category",
+        "label" : "Category",
+        "required" : false,
+        "locked" : false,
+        "occurrence" : {
+          "min" : null,
+          "max" : null,
+          "sorting_label_field" : null,
+          "default" : null
+        },
+        "children" : [ {
+          "id" : "116acbf9-64d8-d7f1-8e1d-956f7171f24b",
+          "name" : "text_title",
+          "label" : "Text Title",
+          "required" : false,
+          "locked" : false,
+          "validation_regex" : "",
+          "allow_new_line" : false,
+          "show_emoji_picker" : false,
+          "type" : "text",
+          "display_width" : null,
+          "default" : "ご利用の流れ"
+        }, {
+          "id" : "87f5d0a7-5c64-8869-4067-692ff6401ee5",
+          "name" : "link_title",
+          "label" : "Link Title",
+          "required" : false,
+          "locked" : false,
+          "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+          "show_advanced_rel_options" : false,
+          "type" : "link",
+          "display_width" : null,
+          "default" : {
+            "url" : {
+              "content_id" : null,
+              "type" : "EXTERNAL",
+              "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+          }
+        } ],
+        "tab" : "CONTENT",
+        "expanded" : false,
+        "group_occurrence_meta" : null,
+        "type" : "group",
+        "display_width" : null,
+        "default" : [ ]
+      } ],
+      "tab" : "CONTENT",
+      "expanded" : false,
+      "group_occurrence_meta" : null,
+      "type" : "group",
+      "display_width" : null,
+      "default" : [ ]
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : {
+      "suggest" : [ ],
+      "text_airport" : "空港/国内カウンター",
+      "area_left" : [ ],
+      "area_right" : [ ],
+      "another" : [ ]
+    }
+  }, {
+    "id" : "1f03dca5-be44-74df-b3da-3b516945b04e",
+    "name" : "right",
+    "label" : "Right",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "e64e838c-ee86-f007-f87e-0b6e468687d5",
+      "name" : "advertise",
+      "label" : "Advertise",
+      "required" : false,
+      "locked" : false,
+      "occurrence" : {
+        "min" : null,
+        "max" : null,
+        "sorting_label_field" : null,
+        "default" : null
+      },
+      "children" : [ {
+        "id" : "a696b74f-9068-418f-4d6b-b46a9f3c6d17",
+        "name" : "image_advertise",
+        "label" : "Image Advertise",
+        "required" : false,
+        "locked" : false,
+        "responsive" : true,
+        "resizable" : true,
+        "show_loading" : false,
+        "type" : "image",
+        "display_width" : null,
+        "default" : {
+          "size_type" : "auto",
+          "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/footer_btn_regist.png",
+          "alt" : "footer_btn_regist",
+          "loading" : "lazy",
+          "width" : 200,
+          "height" : 76,
+          "max_width" : 200,
+          "max_height" : 76
+        }
+      }, {
+        "id" : "8e1c34af-e1f7-02bd-768c-06fa8270bd42",
+        "name" : "link_image",
+        "label" : "Link Image",
+        "required" : false,
+        "locked" : false,
+        "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+        "show_advanced_rel_options" : false,
+        "type" : "link",
+        "display_width" : null,
+        "default" : {
+          "url" : {
+            "content_id" : null,
+            "type" : "EXTERNAL",
+            "href" : ""
+          },
+          "open_in_new_tab" : false,
+          "no_follow" : false
+        }
+      } ],
+      "tab" : "CONTENT",
+      "expanded" : false,
+      "group_occurrence_meta" : null,
+      "type" : "group",
+      "display_width" : null,
+      "default" : [ ]
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : {
+      "advertise" : [ ]
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : {
+    "left" : {
+      "suggest" : [ ],
+      "text_airport" : "空港/国内カウンター",
+      "area_left" : [ ],
+      "area_right" : [ ],
+      "another" : [ ]
+    },
+    "right" : {
+      "advertise" : [ ]
+    }
+  }
+} ]

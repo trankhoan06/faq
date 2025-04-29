@@ -1,0 +1,13 @@
+[ {
+  "id" : "7eb13fdd-670a-a66e-ef09-fe423b4895f7",
+  "name" : "text_title",
+  "label" : "Text Title",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "グローバルWiFi　よくある質問"
+} ]

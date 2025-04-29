@@ -1,0 +1,655 @@
+[ {
+  "id" : "9f8ea2c4-daa5-d27a-d125-40fabd330093",
+  "name" : "header_logo",
+  "label" : "Header Logo",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "a45857ce-a842-e481-2b08-cbc0a622c2df",
+    "name" : "logo",
+    "label" : "Logo",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "173cc782-5134-47c4-6f88-8e3640f07643",
+      "name" : "image_logo",
+      "label" : "Image Logo",
+      "required" : false,
+      "locked" : false,
+      "responsive" : true,
+      "resizable" : true,
+      "show_loading" : false,
+      "type" : "image",
+      "display_width" : null,
+      "default" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/header_logo.png",
+        "alt" : "header_logo",
+        "loading" : "lazy",
+        "width" : 250,
+        "height" : 36,
+        "max_width" : 250,
+        "max_height" : 36
+      }
+    }, {
+      "id" : "5e8d7b74-d50d-6bad-0547-43f8c4c0c9e1",
+      "name" : "image_logo_mobile",
+      "label" : "Image Logo Mobile",
+      "required" : false,
+      "locked" : false,
+      "responsive" : true,
+      "resizable" : true,
+      "show_loading" : false,
+      "type" : "image",
+      "display_width" : null,
+      "default" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/globalwifi_logo_sp.png",
+        "alt" : "globalwifi_logo_sp",
+        "loading" : "lazy",
+        "width" : 1024,
+        "height" : 800,
+        "max_width" : 1024,
+        "max_height" : 800
+      }
+    }, {
+      "id" : "716b634b-59db-436b-eb7c-8b6ccdb3a488",
+      "name" : "text_logo",
+      "label" : "Text Logo",
+      "required" : false,
+      "locked" : false,
+      "validation_regex" : "",
+      "allow_new_line" : false,
+      "show_emoji_picker" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "株式会社ビジョン 東証プライム上場（証券コード：9416）"
+    }, {
+      "id" : "477ce049-edba-862d-3baf-339dc1b404ca",
+      "name" : "text_logo_mobile",
+      "label" : "Text Logo Mobile",
+      "required" : false,
+      "locked" : false,
+      "validation_regex" : "",
+      "allow_new_line" : false,
+      "show_emoji_picker" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "株式会社ビジョン<br>東証プライム上場<br>(証券コード9416)"
+    }, {
+      "id" : "eac47e0d-b22e-01ed-7525-241866a9f1d7",
+      "name" : "link_header_logo",
+      "label" : "Link header logo",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+      "show_advanced_rel_options" : false,
+      "type" : "link",
+      "display_width" : null,
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "https://townwifi.com/",
+          "type" : "EXTERNAL"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : {
+      "image_logo" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/header_logo.png",
+        "alt" : "header_logo",
+        "loading" : "lazy",
+        "width" : 250,
+        "height" : 36,
+        "max_width" : 250,
+        "max_height" : 36
+      },
+      "image_logo_mobile" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/globalwifi_logo_sp.png",
+        "alt" : "globalwifi_logo_sp",
+        "loading" : "lazy",
+        "width" : 1024,
+        "height" : 800,
+        "max_width" : 1024,
+        "max_height" : 800
+      },
+      "text_logo" : "株式会社ビジョン 東証プライム上場（証券コード：9416）",
+      "text_logo_mobile" : "株式会社ビジョン<br>東証プライム上場<br>(証券コード9416)",
+      "link_header_logo" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "https://townwifi.com/",
+          "type" : "EXTERNAL"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
+  }, {
+    "id" : "6a48330a-c8ba-6f77-8a9a-cc79e71e9e8e",
+    "name" : "icon_logo_tosho",
+    "label" : "Icon Logo Tosho",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "lazy"
+    }
+  }, {
+    "id" : "2beded2e-e9a0-26b2-7f8b-c97ec9e299ed",
+    "name" : "image_logo_no_1",
+    "label" : "Image Logo No 1",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "size_type" : "auto",
+      "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/wifi_rental_no1.png",
+      "alt" : "wifi_rental_no1",
+      "loading" : "lazy",
+      "width" : 384,
+      "height" : 191,
+      "max_width" : 384,
+      "max_height" : 191
+    }
+  }, {
+    "id" : "66ea1435-4d28-f305-5bdf-cd9054dc55d7",
+    "name" : "user",
+    "label" : "User",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "55676400-4dd7-09bb-8d42-442ad9d7423e",
+      "name" : "icon_user",
+      "label" : "Icon User",
+      "required" : false,
+      "locked" : false,
+      "responsive" : true,
+      "resizable" : true,
+      "show_loading" : false,
+      "type" : "image",
+      "display_width" : null,
+      "default" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/icon_gnav03.png",
+        "alt" : "icon_gnav03",
+        "loading" : "lazy",
+        "width" : 13,
+        "height" : 20,
+        "max_width" : 13,
+        "max_height" : 20
+      }
+    }, {
+      "id" : "0fb480b1-2e57-b8c9-5165-1a782467261b",
+      "name" : "icon_user_mobile",
+      "label" : "Icon User Mobile",
+      "required" : false,
+      "locked" : false,
+      "responsive" : true,
+      "resizable" : true,
+      "show_loading" : false,
+      "type" : "image",
+      "display_width" : null,
+      "default" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/menu_img_mypage.png",
+        "alt" : "menu_img_mypage",
+        "loading" : "lazy",
+        "width" : 92,
+        "height" : 71,
+        "max_width" : 92,
+        "max_height" : 71
+      }
+    }, {
+      "id" : "04112753-4633-aaf0-929a-9f806667b92c",
+      "name" : "text_user",
+      "label" : "Text User",
+      "required" : false,
+      "locked" : false,
+      "validation_regex" : "",
+      "allow_new_line" : false,
+      "show_emoji_picker" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "マイページ<br>（領収書）"
+    }, {
+      "id" : "a7bd2f77-79a3-48ce-1023-ca67dac0f4a1",
+      "name" : "link_user",
+      "label" : "Link User",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+      "show_advanced_rel_options" : false,
+      "type" : "link",
+      "display_width" : null,
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : {
+      "icon_user" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/icon_gnav03.png",
+        "alt" : "icon_gnav03",
+        "loading" : "lazy",
+        "width" : 13,
+        "height" : 20,
+        "max_width" : 13,
+        "max_height" : 20
+      },
+      "icon_user_mobile" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/menu_img_mypage.png",
+        "alt" : "menu_img_mypage",
+        "loading" : "lazy",
+        "width" : 92,
+        "height" : 71,
+        "max_width" : 92,
+        "max_height" : 71
+      },
+      "text_user" : "マイページ<br>（領収書）",
+      "link_user" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
+  }, {
+    "id" : "ec293488-0a2c-f0fb-7e15-93c525335d14",
+    "name" : "special_application",
+    "label" : "Special Application",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "435f545c-4eff-bae5-107b-b37c96ac82fb",
+      "name" : "image_special_application",
+      "label" : "Image Special Application",
+      "required" : false,
+      "locked" : false,
+      "responsive" : true,
+      "resizable" : true,
+      "show_loading" : false,
+      "type" : "image",
+      "display_width" : null,
+      "default" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/header_btn_enterprise.png",
+        "alt" : "header_btn_enterprise",
+        "loading" : "lazy",
+        "width" : 183,
+        "height" : 65,
+        "max_width" : 183,
+        "max_height" : 65
+      }
+    }, {
+      "id" : "9f688ccd-f224-1ff9-a77b-e454755eca88",
+      "name" : "link_special_application",
+      "label" : "Link Special Application",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+      "show_advanced_rel_options" : false,
+      "type" : "link",
+      "display_width" : null,
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "/enterprise/login/",
+          "type" : "EXTERNAL"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : {
+      "image_special_application" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/header_btn_enterprise.png",
+        "alt" : "header_btn_enterprise",
+        "loading" : "lazy",
+        "width" : 183,
+        "height" : 65,
+        "max_width" : 183,
+        "max_height" : 65
+      },
+      "link_special_application" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "/enterprise/login/",
+          "type" : "EXTERNAL"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
+  }, {
+    "id" : "f49bb223-61ce-8fe2-b6b0-ae805220e49c",
+    "name" : "rental_application",
+    "label" : "Rental Application",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "be54603e-d97b-0d6d-e258-21d36cf3bdd8",
+      "name" : "image_rental_application",
+      "label" : "Image Rental Application",
+      "required" : false,
+      "locked" : false,
+      "responsive" : true,
+      "resizable" : true,
+      "show_loading" : false,
+      "type" : "image",
+      "display_width" : null,
+      "default" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/header_btn_regist.png",
+        "alt" : "header_btn_regist",
+        "loading" : "lazy",
+        "width" : 212,
+        "height" : 65,
+        "max_width" : 212,
+        "max_height" : 65
+      }
+    }, {
+      "id" : "c280b8c9-4f14-2971-52a7-4b4bca842779",
+      "name" : "image_rental_application_mobile",
+      "label" : "Image Rental Application Mobile",
+      "required" : false,
+      "locked" : false,
+      "responsive" : true,
+      "resizable" : true,
+      "show_loading" : false,
+      "type" : "image",
+      "display_width" : null,
+      "default" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/menu_img_regist.png",
+        "alt" : "menu_img_regist",
+        "loading" : "lazy",
+        "width" : 92,
+        "height" : 71,
+        "max_width" : 92,
+        "max_height" : 71
+      }
+    }, {
+      "id" : "2b854e46-327e-2f92-1f93-2a255b53a1cd",
+      "name" : "link_rental_application",
+      "label" : "Link Rental Application",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+      "show_advanced_rel_options" : false,
+      "type" : "link",
+      "display_width" : null,
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "/townwifi.com/regist/order/?header=1",
+          "type" : "EXTERNAL"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : {
+      "image_rental_application" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/header_btn_regist.png",
+        "alt" : "header_btn_regist",
+        "loading" : "lazy",
+        "width" : 212,
+        "height" : 65,
+        "max_width" : 212,
+        "max_height" : 65
+      },
+      "image_rental_application_mobile" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/menu_img_regist.png",
+        "alt" : "menu_img_regist",
+        "loading" : "lazy",
+        "width" : 92,
+        "height" : 71,
+        "max_width" : 92,
+        "max_height" : 71
+      },
+      "link_rental_application" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "/townwifi.com/regist/order/?header=1",
+          "type" : "EXTERNAL"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : {
+    "logo" : {
+      "image_logo" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/header_logo.png",
+        "alt" : "header_logo",
+        "loading" : "lazy",
+        "width" : 250,
+        "height" : 36,
+        "max_width" : 250,
+        "max_height" : 36
+      },
+      "image_logo_mobile" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/globalwifi_logo_sp.png",
+        "alt" : "globalwifi_logo_sp",
+        "loading" : "lazy",
+        "width" : 1024,
+        "height" : 800,
+        "max_width" : 1024,
+        "max_height" : 800
+      },
+      "text_logo" : "株式会社ビジョン 東証プライム上場（証券コード：9416）",
+      "text_logo_mobile" : "株式会社ビジョン<br>東証プライム上場<br>(証券コード9416)",
+      "link_header_logo" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "https://townwifi.com/",
+          "type" : "EXTERNAL"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    },
+    "icon_logo_tosho" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "lazy"
+    },
+    "image_logo_no_1" : {
+      "size_type" : "auto",
+      "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/wifi_rental_no1.png",
+      "alt" : "wifi_rental_no1",
+      "loading" : "lazy",
+      "width" : 384,
+      "height" : 191,
+      "max_width" : 384,
+      "max_height" : 191
+    },
+    "user" : {
+      "icon_user" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/icon_gnav03.png",
+        "alt" : "icon_gnav03",
+        "loading" : "lazy",
+        "width" : 13,
+        "height" : 20,
+        "max_width" : 13,
+        "max_height" : 20
+      },
+      "icon_user_mobile" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/menu_img_mypage.png",
+        "alt" : "menu_img_mypage",
+        "loading" : "lazy",
+        "width" : 92,
+        "height" : 71,
+        "max_width" : 92,
+        "max_height" : 71
+      },
+      "text_user" : "マイページ<br>（領収書）",
+      "link_user" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    },
+    "special_application" : {
+      "image_special_application" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/header_btn_enterprise.png",
+        "alt" : "header_btn_enterprise",
+        "loading" : "lazy",
+        "width" : 183,
+        "height" : 65,
+        "max_width" : 183,
+        "max_height" : 65
+      },
+      "link_special_application" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "/enterprise/login/",
+          "type" : "EXTERNAL"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    },
+    "rental_application" : {
+      "image_rental_application" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/header_btn_regist.png",
+        "alt" : "header_btn_regist",
+        "loading" : "lazy",
+        "width" : 212,
+        "height" : 65,
+        "max_width" : 212,
+        "max_height" : 65
+      },
+      "image_rental_application_mobile" : {
+        "size_type" : "auto",
+        "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/menu_img_regist.png",
+        "alt" : "menu_img_regist",
+        "loading" : "lazy",
+        "width" : 92,
+        "height" : 71,
+        "max_width" : 92,
+        "max_height" : 71
+      },
+      "link_rental_application" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "/townwifi.com/regist/order/?header=1",
+          "type" : "EXTERNAL"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
+  }
+}, {
+  "id" : "4770d665-3c5e-ed0f-68f6-29aed6c02589",
+  "name" : "image_catalog_mobile",
+  "label" : "Image Catalog Mobile",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "fe92a4c6-ad12-e41c-f092-4345f4514df3",
+    "name" : "image",
+    "label" : "Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "size_type" : "auto",
+      "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/menu_img_menu.png",
+      "alt" : "menu_img_menu",
+      "loading" : "lazy",
+      "width" : 92,
+      "height" : 71,
+      "max_width" : 92,
+      "max_height" : 71
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : {
+    "image" : {
+      "size_type" : "auto",
+      "src" : "https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/menu_img_menu.png",
+      "alt" : "menu_img_menu",
+      "loading" : "lazy",
+      "width" : 92,
+      "height" : 71,
+      "max_width" : 92,
+      "max_height" : 71
+    }
+  }
+} ]

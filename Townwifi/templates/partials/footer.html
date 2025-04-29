@@ -5,14 +5,17 @@
 <!-- Begin partial -->
 
 <div class="footer">
-    {% module "module_17322591075471" path="/Townwifi/modules/Townwifi-Footer", label="Townwifi-Footer" %}
-{% module "module_173256175659810" path="/Townwifi/modules/Townwifi-FooterMobile", label="Townwifi-FooterMobile" %}
-{% module "module_17323360390962" path="/Townwifi/modules/Townwifi-Footer_Bottom_area", label="Townwifi-Footer_Bottom_area" %}
-{% module "module_17325271014104" path="/Townwifi/modules/Townwifi-BtnMobile", label="Townwifi-BtnMobile" %}
+    {% module "Townwifi-Footer" path="/Townwifi/modules/common/Townwifi-Footer", label="Townwifi-Footer" %}
+{% module "Townwifi-FooterMobile" path="/Townwifi/modules/common/Townwifi-FooterMobile", label="Townwifi-FooterMobile" %}
+{% module "Townwifi-Footer_Bottom_area" path="/Townwifi/modules/common/Townwifi-Footer_Bottom_area", label="Townwifi-Footer_Bottom_area" %}
+{% module "Townwifi-BtnMobile" path="/Townwifi/modules/common/Townwifi-BtnMobile", label="Townwifi-BtnMobile" %}
 </div>
 <style>
-    .footer{
-        margin-bottom: 4.5rem;
+    @media screen and (max-width:767px) {
+        .footer{
+            margin-bottom: 4.8rem;
+        }
+        
     }
 </style>
 <!-- End partial -->

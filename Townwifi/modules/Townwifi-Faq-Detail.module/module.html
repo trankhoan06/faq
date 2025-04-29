@@ -1,17 +1,23 @@
  <!-- module html  -->
- {% set category_name = request.query_dict.name %}
- {%set posts=hubdb_table_rows('102743924','&name='~category_name)%}
+ <!-- {%set posts=hubdb_table_rows('102743924','&no='~no)%} -->
+ <!-- {% set no = request.query_dict.no %} -->
+ {%set posts=hubdb_table_rows('102743924','&name='~module.hubdbrow_name.columns.name)%}
  {% set post= posts[0] %}
  {% set post1= posts[0][6] %}
-    {# <p id="jsonData">{{post}}</p> #}
+    {% macro add_hours(datetime, hours) %}
+        {% set timestamp = datetime|unixtimestamp %}
+        {% set added_timestamp = timestamp + (hours * 3600000) %}
+        {{ added_timestamp|datetimeformat('%Y-%m-%d %H:%M:%S') }}
+    {% endmacro %}
+    <p>{{post[0]}}</p>
 <section class="faq__detail">
     <div class="faq__detail__post__info">
         <a href="/category/show?name={{post1[0][1]}}" class="faq__detail__post__info-back __link pc">戻る</a>
         <div class="faq__detail__post__info-right">
             <div class="faq__detail__post__info-date">No：{{ post[7] }}</div>
-        <div class="faq__detail__post__info-date pc ">公開日時：{{ post.hs_created_at | datetimeformat('%Y-%m-%d %H:%M:%S')}}</div>
-        <div class="faq__detail__post__info-date"> 更新日時：{{ post.hs_updated_at | datetimeformat('%Y-%m-%d %H:%M:%S')}}</div>
-        <a href="/print/faq?name={{category_name}}" target="_blank" class="faq__detail__post__info-print __link pc"> 印刷</a>
+        <div class="faq__detail__post__info-date pc ">公開日時：{{ add_hours(post.hs_created_at, 9) }}</div>
+        <div class="faq__detail__post__info-date"> 更新日時：{{ post.updated_at | datetimeformat('%Y-%m-%d')}}</div>
+        <a href="/print/faq?name={{no}}" target="_blank" class="faq__detail__post__info-print __link pc"> 印刷</a>
         </div>
 
     </div>
@@ -42,6 +48,7 @@ color: #333;
 font-size: 1.204rem;
 }
 .faq__detail__post__info-print{
+    display: none !important;
     font-size: 1.204rem;
     color: #333; 
     background: url("https://47021661.fs1.hubspotusercontent-na1.net/hubfs/47021661/town%20wifi/ico_print%20(1).gif") left center no-repeat;
@@ -79,6 +86,9 @@ font-size: 1.204rem;
     padding: 0 6.5rem 2rem;
     margin-top: 2rem;
     border-bottom: 1px solid #ccc;
+}
+.faq__detail__answer img{
+    max-width: 100% !important;
 }
 .faq__detail__answer em strong, .faq__detail__answer strong em{
     padding: 1rem;
@@ -177,3 +187,9 @@ font-size: 1.204rem;
     display: none;
 }
 </style>
+<script>
+    $('.faq__detail__answer img').each((idx, item) => {
+        let width = $(item).attr('width');
+        $(item).css('width', width);
+    });
+</script>
